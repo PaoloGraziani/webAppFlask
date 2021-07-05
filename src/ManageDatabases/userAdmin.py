@@ -7,12 +7,12 @@ from src.ManageDatabases.SettingDatabase import Authentication_HOST, Authenticat
 def username_password_confirm(username, password):
     h = hashlib.md5(password.encode())
     password = h.hexdigest()
-    print(password)
+    #print(password)
     connessione = connectDatabase(Authentication_HOST, Authentication_DATABASE, Authentication_USERNAME,
                                   Authentication_PASSWORD)
     valid = 0
     with connessione.cursor() as cursore:
-        print(str(password))
+        #print(str(password))
         cursore.execute("SELECT * FROM USERS WHERE id_user=%s AND pass=%s", (username, str(password)))
         if cursore.fetchone() == None:
             valid = False

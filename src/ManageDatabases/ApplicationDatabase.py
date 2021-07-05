@@ -14,7 +14,7 @@ def select_orders():
         sel_orders = ordini.fetchall()
 
         for result in sel_orders:
-            cust_info = custumersInformation(result[4])
+            cust_info = customersInformation(result[4])
             for res in cust_info:
                 info = {'id': result[4], 'cust_name': res[1], 'cust_city': res[2], 'working_area': res[3],
                         'cust_country': res[4], 'grade': res[5], 'opening_amt': res[6], 'receive_amt': res[7],
@@ -62,7 +62,7 @@ def select_orderByID(ord_num):
 
 
 def insert_order(ord_num, import_order, order_amount, date_order, cust_id, agent_code, description):
-    connection = psycopg2.connect(host="localhost", database="postgres", user="postgres", password="postgres")
+    connection = psycopg2.connect(host="localhost", database="DbWebApp", user="postgres", password="postgres")
     with connection.cursor() as ord:
         ord.execute("SELECT * FROM ORDERS WHERE ord_num = %s", (str(ord_num),))
         if ord.rowcount == 0:
@@ -74,7 +74,7 @@ def insert_order(ord_num, import_order, order_amount, date_order, cust_id, agent
 
 
 def delete_order(ord_num):
-    connection = psycopg2.connect(host="localhost", database="postgres", user="postgres", password="postgres")
+    connection = psycopg2.connect(host="localhost", database="DbWebApp", user="postgres", password="postgres")
     with connection.cursor() as delete_ord:
         delete_ord.execute("DELETE FROM ORDERS WHERE ord_num=%s", (ord_num,))
         connection.commit()
@@ -83,7 +83,7 @@ def delete_order(ord_num):
 
 
 def update_order(ord_num, import_order, order_amount, date_order, cust_id, agent_code, description):
-    connection = psycopg2.connect(host="localhost", database="postgres", user="postgres", password="postgres")
+    connection = psycopg2.connect(host="localhost", database="DbWebApp", user="postgres", password="postgres")
     with connection.cursor() as update_ord:
         update_ord.execute(
             "UPDATE INTO ORDERS SET ord_num = ? SET ord_amount = ? SET advance_amount = ? SET ord_date=? SET agent_code = ? SET ord_description = ? ",
@@ -94,7 +94,7 @@ def update_order(ord_num, import_order, order_amount, date_order, cust_id, agent
 
 
 def agentInformation():
-    connessione = psycopg2.connect(host="localhost", database="postgres", user="postgres", password="postgres")
+    connessione = psycopg2.connect(host="localhost", database="DbWebApp", user="postgres", password="postgres")
     with connessione.cursor() as agentInfo:
         agentInfo.execute("SELECT * from AGENTS ")
         infoAgent = agentInfo.fetchall()
@@ -103,18 +103,18 @@ def agentInformation():
     return infoAgent
 
 
-def agentInformation(id_agent):
-    connessione = psycopg2.connect(host="localhost", database="postgres", user="postgres", password="postgres")
-    with connessione.cursor() as agentInfo:
-        agentInfo.execute("SELECT * from AGENTS WHERE agent_code = %s", id_agent)
-        infoAgent = agentInfo.fetchall()
-        agentInfo.close()
-    connessione.close()
-    return infoAgent
+#def agentInformation(id_agent):
+#    connessione = psycopg2.connect(host="localhost", database="DbWebApp", user="postgres", password="postgres")
+#    with connessione.cursor() as agentInfo:
+#        agentInfo.execute("SELECT * from AGENTS WHERE agent_code = %s", id_agent)
+#        infoAgent = agentInfo.fetchall()
+#        agentInfo.close()
+#    connessione.close()
+#    return infoAgent
 
 
-def costumersInformation():
-    connessione = psycopg2.connect(host="localhost", database="postgres", user="postgres", password="postgres")
+def customersInformation():
+    connessione = psycopg2.connect(host="localhost", database="DbWebApp", user="postgres", password="postgres")
     with connessione.cursor() as custInfo:
         custInfo.execute("SELECT * from CUSTOMER ")
         infocust = custInfo.fetchall()
@@ -122,11 +122,11 @@ def costumersInformation():
         return infocust
 
 
-def custumersInformation(id_cust):
-    connessione = psycopg2.connect(host="localhost", database="postgres", user="postgres", password="postgres")
-    with connessione.cursor() as agentInfo:
-        agentInfo.execute("SELECT * from CUSTOMER WHERE cust_code = %s", (id_cust,))
-        infoCustumer = agentInfo.fetchall()
-        agentInfo.close()
-    connessione.close()
-    return infoCustumer
+#def customersInformation(id_cust):
+#    connessione = psycopg2.connect(host="localhost", database="DbWebApp", user="postgres", password="postgres")
+#    with connessione.cursor() as agentInfo:
+#        agentInfo.execute("SELECT * from CUSTOMER WHERE cust_code = %s", (id_cust,))
+#        infoCustumer = agentInfo.fetchall()
+#        agentInfo.close()
+#    connessione.close()
+#    return infoCustumer

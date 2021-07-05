@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista ordini</title>
+        <!-- File CSS -->
+        <link rel="stylesheet" type="text/css" href="static/listOrder.css">
+    </head>
+
+    <body class="corpo">
+        <h1>Ordini</h1>
+        <!-- Titolo tabella -->
+        <div id="movimento">
+            <table id="titoloTab">
+                <thead>
+                <tr>
+                    <th>Numero Ordine</th>
+                    <th>Importo ordine</th>
+                    <th>Acconto dell'ordine</th>
+                    <th>Data dell'ordine</th>
+                    <th>Codice dell'agente</th>
+                    <th>Descrizione dell'ordine</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+
+        <!-- Dati tabella -->
+        <table id="datiTab">
+            <tbody>
+            {% for row in orders %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>
+                        <details><summary> {{row[5]}} </summary>
+                            {% for info in agentInfo %}
+                                {% if info[0] == row[5] %}
+                                    <div>
+                                        Nome: {{info[1]}}<br>
+                                        Area di Lavoro: {{info[2]}}<br>
+                                        Commissione: {{info[3]}}<br>
+                                        N°Telefono: {{info[4]}}<br>
+                                        Città: {{info[5]}}<br>
+                                    </div>
+                                {%endif%}
+                            {%endfor%}
+                        </details>
+                    </td>
+                    <td>{{row[6]}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Bottone Logout -->
+        <form action="logout">
+            <br>
+            <input id="modLogout" type="submit" value="Esci"/>
+        </form>
+    </body>
+</html>

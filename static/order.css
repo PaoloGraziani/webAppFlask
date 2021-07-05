@@ -74,6 +74,45 @@ p{
     margin-top: 0em;
 }
 
+.campoCliente{
+    font-size: 1.3em;
+    font-family: Arial;
+    text-align: center;
+    background-color: #F8F8FF;
+
+    border: 0.1em solid #008080;
+    border-radius: 1em;
+    margin-top: 0em;
+    margin-left: 4.1em;
+    float: left;
+}
+
+.campoAgente1{
+    font-size: 1.3em;
+    font-family: Arial;
+    text-align: center;
+    background-color: #F8F8FF;
+
+    border: 0.1em solid #008080;
+    border-radius: 1em;
+    margin-top: 0em;
+    margin-right: 4.1em;
+    float: right;
+}
+
+.campoAgente2{
+    font-size: 1.3em;
+    font-family: Arial;
+    text-align: center;
+    background-color: #F8F8FF;
+
+    border: 0.1em solid #008080;
+    border-radius: 1em;
+    margin-top: 0em;
+    margin-right: 0.5em;
+    float: right;
+}
+
 .campoDescrizione{
     font-size: 1.3em;
     font-family: Arial;
