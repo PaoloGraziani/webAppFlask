@@ -1,0 +1,97 @@
+.corpo{
+  background: #FFF8DC;
+}
+
+h1{
+  color: #008080;
+  font-family: Arial;
+  font-size: 3em;
+  text-align: center;
+
+  position: absolute;
+  top: 0em;
+  left: 18%;
+  margin-left: 4.9em;
+  width: 10em;
+}
+
+#movimento{
+  /*Sposta la tabella dei titoli*/
+  /*con lo scorrimento della pagina*/
+  position: sticky;
+  top: 0em;
+}
+
+#titoloTab{
+  margin-top: 7em;
+}
+
+#datiTab{
+  margin-top: 0.5em;
+}
+
+table{
+  color: #008080;
+  background-color: #8FBC8F;
+  font-family: Arial;
+  text-align: center;
+
+  border: 0.3em solid #F8F8FF;
+  border-radius: 0.4em;
+
+  width: 100%;
+  table-layout:fixed; /*Mantiene le celle tutte uguali di dimensione*/
+}
+
+td{
+  border: solid; /* Bordo superiore e sinistro */
+  border-right: inset white;
+  border-bottom: inset white;
+
+  width: 6em;
+  height: 4em;
+}
+
+th{
+  width: 6.3em;
+}
+
+/*Quando non sei sul link*/
+.modLink{
+  color: black;
+  background-color: #F8F8FF;
+  font-family: Arial;
+  border: 0.3em solid #F8F8FF;
+  border-radius: 1em;
+
+  transition-duration: 0.5s;
+  /*Il cursore diventa la mamo*/
+  cursor: pointer;
+}
+
+/*Quando sei sul link*/
+.modLink:hover {
+  color: #F8F8FF;
+  background-color: #008080;
+  border: 0.6em solid #008080;
+}
+
+/*Quando non sei sul logout*/
+#modLogout{
+  color: #F8F8FF;
+  background-color: #008080;
+  font-family: Arial;
+  border: 0.3em solid #008080;
+  border-radius: 1em;
+
+  transition-duration: 0.5s;
+  /*Il cursore diventa la mamo*/
+  cursor: pointer;
+}
+
+/*Quando sei sul logout*/
+#modLogout:hover {
+  color: black;
+  background-color: #F8F8FF;
+  border: 0.6em solid #F8F8FF;
+}

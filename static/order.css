@@ -1,0 +1,136 @@
+#corpo{
+    background-color: #FFF8DC;
+}
+
+.titolo{
+    color: #008080;
+    font-size: 3em;
+    font-family: Arial;
+    text-align: center;
+
+    /*Titolo responsive*/
+    position: absolute;
+    top: -0.5em;
+    left: 50%;
+    margin-left: -7.8em;
+    height: 1em;
+    width: 15.5em;
+}
+
+.dati{
+    text-align: center;
+
+    /*Dati responsive*/
+    position: absolute;
+    top: 4em;
+    left: 50%;
+    margin-left: -18em;
+    margin-right: -18em;
+    height: 36em;
+    width: 36em;
+}
+
+.cornice1{
+    background-color: #008080;
+
+    margin-left: 9em;
+    height: 3.7em;
+    width: 17.5em;
+}
+
+.cornice2{
+    background-color: #008080;
+
+    margin-left: 1em;
+    height: 3.7em;
+    width: 34em;
+}
+
+.cornice3{
+    background-color: #008080;
+
+    margin-left: 1em;
+    height: 5.4em;
+    width: 34em;
+}
+
+p{
+    color: #FFF8DC;
+    font-size: 1.3em;
+    font-family: Arial;
+    text-align: center;
+
+    margin-bottom: 0em;
+}
+
+.campo{
+    font-size: 1.3em;
+    font-family: Arial;
+    text-align: center;
+    background-color: #F8F8FF;
+
+    border: 0.1em solid #008080;
+    border-radius: 1em;
+    margin-top: 0em;
+}
+
+.campoDescrizione{
+    font-size: 1.3em;
+    font-family: Arial;
+    background-color: #F8F8FF;
+
+    border: 0.1em solid #008080;
+    border-radius: 1em;
+    margin-top: 0em;
+    height: 2.4em;
+    width: 25em;
+}
+
+/*Quando non sei sul bottone*/
+.bt1{
+    font-size: 1em;
+    font-family: Arial;
+    color: #F8F8FF;
+    background-color: #008080;
+
+    border: 0.3em solid #008080;
+    border-radius: 1em;
+
+    transition-duration: 0.5s;
+    /*Il cursore diventa la mamo*/
+    cursor: pointer;
+}
+
+/*Quando sei sul bottone*/
+.bt1:hover {
+    color: black;
+    background-color: #F8F8FF;
+
+    border: 0.3em solid #F8F8FF;
+}
+
+/*Quando non sei sul bottone*/
+.bt2{
+    font-size: 1em;
+    font-family: Arial;
+    color: #F8F8FF;
+    background-color: #008080;
+
+    border: 0.3em solid #008080;
+    border-radius: 1em;
+    float: left;
+    margin-top: 3em;
+    margin-left: 1em;
+
+    transition-duration: 0.5s;
+    /*il cursore diventa la mamo*/
+    cursor: pointer;
+}
+
+/*Quando sei sul bottone*/
+.bt2:hover {
+    color: black;
+
+    background-color: #F8F8FF;
+    border: 0.3em solid #F8F8FF;
+}

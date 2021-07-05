@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pagina di login</title>
+		<link rel="stylesheet" type="text/css" href="/static/login.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body id="corpo">
+		{%if error == 'Yes'%}
+			<p id="errore">Credenziali errate!</p>
+		{%endif%}
+		<div id="sfondoCred">
+			<h1 id="titolo">Login</h1>
+
+			<form action="login" method="post">
+				<input class="campo" name="username" type="text" maxlength="6" pattern="[ACD0-9]{4,}" placeholder="Username" required/>
+				<input class="campo" name="password" type="password" maxlength="16" placeholder="Password" required/>
+				<input type="hidden" name="ruolo" value={ruolo}/>
+				<br/><br/><br/>
+				<input id="bottone" type="submit" value="Accedi"/>
+			</form>
+		</div>
+
+		<div id="marchio">
+			<hr/>
+			<p>Paolo Graziani - Lorenzo Genghini © 2021</p>
+		</div>
+	</body>
+</html>

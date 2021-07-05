@@ -1,0 +1,75 @@
+#corpo{
+	background-color: #FFF8DC;
+	text-align: center;
+}
+
+#errore{
+	background-color: red;
+	color: #F8F8FF;
+	font-family: Arial;
+	font-size: 3em;
+
+}
+
+#sfondoCred{
+	background-color: #20B2AA;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -13em;
+	margin-left: -10.5em;
+	height: 20em;
+	width: 20em;
+
+	border-radius: 1em;
+	padding: 1em;
+}
+
+#titolo{
+	color: #008080;
+	font-family: Arial;
+	font-size: 2.5em;
+}
+
+.campo{
+	font-family: arial;
+	text-align: center;
+
+	height: 3em;
+	width: 16em;
+
+	border-style: none;
+	border-radius: 1.5em;
+	margin: 0.5em;
+}
+
+/* Quando non sei sul bottone */
+#bottone{
+	color: black;
+	background-color: white;
+	font-size: 2em;
+	text-align: center;
+
+	border: solid #4CAF50; /*Specifico il tipo di bordo e il colore*/
+	border-radius: 1em;
+	height: 1.5em;
+	width: 5em;
+
+	transition-duration: 0.5s;
+	cursor: pointer;
+}
+
+/* Quando sei sul bottone */
+#bottone:hover {
+	color: white;
+	background-color: #4CAF50;
+}
+
+#marchio{
+	font-family: arial;
+
+	position: absolute;
+	bottom: 0.1em;
+	width: 100%;
+}
