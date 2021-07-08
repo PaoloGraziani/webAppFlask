@@ -6,22 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lista ordini</title>
         <!-- File CSS -->
-        <link rel="stylesheet" type="text/css" href="static/listOrder.css">
+        <link rel="stylesheet" type="text/css" href="listOrders.css">
     </head>
 
     <body class="corpo">
-        <h1>Ordini</h1>
+        <h1 aria-describedby="description">Ordini</h1>
         <!-- Titolo tabella -->
         <div id="movimento">
             <table id="titoloTab">
                 <thead>
                 <tr>
-                    <th>Numero Ordine</th>
-                    <th>Importo ordine</th>
-                    <th>Acconto dell'ordine</th>
-                    <th>Data dell'ordine</th>
-                    <th>Codice dell'agente</th>
-                    <th>Descrizione dell'ordine</th>
+                    <th aria-describedby="col1">Numero Ordine</th>
+                    <th aria-describedby="col2">Importo ordine</th>
+                    <th aria-describedby="col3">Acconto dell'ordine</th>
+                    <th aria-describedby="col4">Data dell'ordine</th>
+                    <th aria-describedby="col5">Codice dell'agente</th>
+                    <th aria-describedby="col6">Descrizione dell'ordine</th>
                 </tr>
                 </thead>
             </table>
@@ -62,5 +62,13 @@
             <br>
             <input id="modLogout" type="submit" value="Esci"/>
         </form>
+
+        <p id="description">La tabella raffigurata riassume gli ordini da te effettuati.</p>
+        <p class="col" id="col1">colonna 1</p>
+        <p class="col" id="col2">colonna 2</p>
+        <p class="col" id="col3">colonna 3</p>
+        <p class="col" id="col4">colonna 4</p>
+        <p class="col" id="col5">colonna 5</p>
+        <p class="col" id="col6">colonna 6</p>
     </body>
 </html>

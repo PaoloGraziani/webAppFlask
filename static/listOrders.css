@@ -95,3 +95,12 @@ th{
   background-color: #F8F8FF;
   border: 0.6em solid #F8F8FF;
 }
+
+#description{
+  color: black;
+  font-family: Arial;
+}
+
+.col{
+  display: none;
+}
