@@ -6,98 +6,83 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lista ordini</title>
         <!-- File CSS -->
-        <link rel="stylesheet" type="text/css" href="static/listOrder.css">
+        <link rel="stylesheet" type="text/css" href="/static/listOrders.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     </head>
 
     <body class="corpo">
         <h1>Ordini</h1>
 
         <!-- Titolo tabella -->
-        <div id="movimento">
-            <table id="titoloTab">
-                <thead>
-                    <tr>
-                        <th>Numero Ordine</th>
-                        <th>Importo ordine</th>
-                        <th>Acconto dell'ordine</th>
-                        <th>Data dell'ordine</th>
-                        <th>Codice dell'utente</th>
-                        {%if session['role'] == 'DIRETTORE'%}
-                            <th>Codice dell'agente</th>
-                        {%endif%}
-                        <th>Descrizione dell'ordine</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-
-        <!-- Dati tabella -->
-        <table id="datiTab">
-            <tbody>
-                <tr>
-                    {%for row in orders%}
-                        <td>{{row[0]}}</td>
-                        <td>{{row[1]}}</td>
-                        <td>{{row[2]}}</td>
-                        <td>{{row[3]}}</td>
-                        <td>
-                            {% for info in customerInfo %}
-                                {%if info[0] == row[4]%}
-                                    <details><summary> {{info[1]}} </summary>
-                                        <div>
-                                            Codice cliente: {{info[0]}}<br>
-                                            Città: {{info[2]}}<br>
-                                            Area di Lavoro: {{info[3]}}<br>
-                                            Città: {{info[4]}}<br>
-                                            Grado: {{info[5]}}<br>
-                                            Opening amt: {{info[6]}}<br>
-                                            Soldi ricevuti: {{info[7]}}<br>
-                                            Pagamenti: {{info[8]}}<br>
-                                            Out standing: {{info[9]}}<br>
-                                            N°Telefono: {{info[10]}}<br>
-                                            Agente associato: {{info[11]}}<br>
-                                        </div>
-                                    </details>
-                                {%endif%}
-                            {%endfor%}
-                        </td>
-                        {%if session['role'] == 'DIRETTORE'%}
-                            <td>
-                                {%for info in agentInfo%}
-                                    {%if info[0] == row[5]%}
-                                        <details><summary> {{info[1]}} </summary>
-                                            <div>
-                                                Codice agente: {{info[0]}}<br>
-                                                Area di Lavoro: {{info[2]}}<br>
-                                                Commissione: {{info[3]}}<br>
-                                                N°Telefono: {{info[4]}}<br>
-                                                Città: {{info[5]}}<br>
-                                            </div>
-                                        </details>
-                                    {%endif%}
-                                {%endfor%}
-                            </td>
-                        {%endif%}
-                        <td>{{row[6]}}</td>
-                        <td><a class="modLink" href="/changeOrder?ordNum={{row[0]}}"> Modifica </a></td>
-                        <td><a class="modLink" href="/deleteOrder?ordNum={{row[0]}}"> Elimina </a></td>
-                    {%endfor%}
-                </tr>
-            </tbody>
+        <div id="movimento"></div>
+        <table id="titoloTab">
+        <thead>
+        <tr>
+            <th id="facility_header">Numero Ordine</th>
+            <th>Importo ordine</th>
+            <th>Acconto dell'ordine</th>
+            <th>Data dell'ordine</th>
+            <th>Codice dell'utente</th>
+            <th>Codice dell'agente</th>
+            <th>Descrizione dell'ordine</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
         </table>
-
-        <!-- Bottone inserimeto ordine -->
+        <table id="datiTab">
+        <tbody id="tab_orders"></tbody>
+        </table>
         <form action="insertOrder" method="POST">
             <br>
             <input class="modLink" type="submit" value="Inserisci ordine"/>
         </form>
-
-        <!-- Bottone di Logout -->
         <form action="logout">
             <br>
             <input id="modLogout" type="submit" value="Esci"/>
         </form>
     </body>
 </html>
+
+<script>
+        $.ajax({
+
+            url:"/api/orders",
+            method: 'GET',
+            dataType:'json',
+            success: function (data) {
+                console.log(data);
+                var event_data = '';
+                $.each(data, function(index, value){
+
+                    event_data += '<tr>';
+                    event_data += '<td>'+value.num_ord+'</td>';
+                    event_data += '<td>'+value.importOrder+'</td>';
+                    event_data += '<td>'+value.advance_ord+'</td>';
+                    event_data += '<td>'+value.ordDate+'</td>';
+                    event_data += '<td><details><summary>'+value.Cust_id.cust_name+'</summary>' +
+                        '<div>'+'id: '+value.Cust_id.id+'<br>city: '+value.Cust_id.cust_city+'<br>working area: '+value.Cust_id.working_area+'<br>country: '+value.Cust_id.cust_country+
+                            '<br>grade: '+value.Cust_id.grade+'<br>opening amt: '+value.Cust_id.opening_amt+'<br>receive amt: '+value.Cust_id.receive_amt+'<br>payment amt: '
+                            +value.Cust_id.payment_amt+'<br>out standing: '+value.Cust_id.outstanding_amt+'<br>telephone number: '+ value.Cust_id.phone_no+
+                        '</div></details></td>';
+
+                    event_data += '<td><details><summary>'+value.Agent_code.agent_name+'</summary>' +
+                        '<div>'+'id: '+value.Agent_code.id+'<br>working area: '+value.Agent_code.working_area+'<br>commission: '+
+                        value.Agent_code.commission+'<br>telephone number: '+ value.Agent_code.phone_no+ '<br>country: '+value.Agent_code.country +
+                        '</div></details></td>';
+                    event_data += '<td>'+value.Description+'</td>';
+                    event_data += '<td><a class="modLink" href="/changeOrder?ordNum='+value.num_ord+'"> Modifica </a></td>'
+                    event_data += '<td><a class="modLink" href="/deleteOrder?ordNum='+value.num_ord+'"> Elimina </a></td>'
+                    event_data += '</tr>';
+                });
+                $("#datiTab").append(event_data);
+            },
+
+               // $("#tab_orders").append(response.htmlresponse);
+
+        });
+
+
+    //$('#tab_orders').html('Test');
+</script>

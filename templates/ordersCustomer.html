@@ -1,74 +1,76 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <html xmlns:th="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lista ordini</title>
-        <!-- File CSS -->
-        <link rel="stylesheet" type="text/css" href="listOrders.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista ordini</title>
+    <!-- File CSS -->
+    <link rel="stylesheet" type="text/css" href="static/listOrders.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
 
-    <body class="corpo">
-        <h1 aria-describedby="description">Ordini</h1>
-        <!-- Titolo tabella -->
-        <div id="movimento">
-            <table id="titoloTab">
-                <thead>
-                <tr>
-                    <th aria-describedby="col1">Numero Ordine</th>
-                    <th aria-describedby="col2">Importo ordine</th>
-                    <th aria-describedby="col3">Acconto dell'ordine</th>
-                    <th aria-describedby="col4">Data dell'ordine</th>
-                    <th aria-describedby="col5">Codice dell'agente</th>
-                    <th aria-describedby="col6">Descrizione dell'ordine</th>
-                </tr>
-                </thead>
-            </table>
-        </div>
+<body class="corpo">
+<h1 aria-describedby="description">Ordini</h1>
+<!-- Titolo tabella -->
+<div id="movimento">
+    <table id="titoloTab">
+        <thead>
+        <tr>
+            <th aria-describedby="col1">Numero Ordine</th>
+            <th aria-describedby="col2">Importo ordine</th>
+            <th aria-describedby="col3">Acconto dell'ordine</th>
+            <th aria-describedby="col4">Data dell'ordine</th>
+            <th aria-describedby="col5">Codice dell'agente</th>
+            <th aria-describedby="col6">Descrizione dell'ordine</th>
+        </tr>
+        </thead>
+    </table>
+</div>
 
-        <!-- Dati tabella -->
-        <table id="datiTab">
-            <tbody>
-            {% for row in orders %}
-                <tr>
-                    <td>{{row[0]}}</td>
-                    <td>{{row[1]}}</td>
-                    <td>{{row[2]}}</td>
-                    <td>{{row[3]}}</td>
-                    <td>
-                        <details><summary> {{row[5]}} </summary>
-                            {% for info in agentInfo %}
-                                {% if info[0] == row[5] %}
-                                    <div>
-                                        Nome: {{info[1]}}<br>
-                                        Area di Lavoro: {{info[2]}}<br>
-                                        Commissione: {{info[3]}}<br>
-                                        N°Telefono: {{info[4]}}<br>
-                                        Città: {{info[5]}}<br>
-                                    </div>
-                                {%endif%}
-                            {%endfor%}
-                        </details>
-                    </td>
-                    <td>{{row[6]}}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+<!-- Dati tabella -->
+<table id="datiTab">
 
-        <!-- Bottone Logout -->
-        <form action="logout">
-            <br>
-            <input id="modLogout" type="submit" value="Esci"/>
-        </form>
+</table>
 
-        <p id="description">La tabella raffigurata riassume gli ordini da te effettuati.</p>
-        <p class="col" id="col1">colonna 1</p>
-        <p class="col" id="col2">colonna 2</p>
-        <p class="col" id="col3">colonna 3</p>
-        <p class="col" id="col4">colonna 4</p>
-        <p class="col" id="col5">colonna 5</p>
-        <p class="col" id="col6">colonna 6</p>
-    </body>
+<!-- Bottone Logout -->
+<form action="logout">
+    <br>
+    <input id="modLogout" type="submit" value="Esci"/>
+</form>
+
+<p id="description">La tabella raffigurata riassume gli ordini da te effettuati.</p>
+<p class="col" id="col1">colonna 1</p>
+<p class="col" id="col2">colonna 2</p>
+<p class="col" id="col3">colonna 3</p>
+<p class="col" id="col4">colonna 4</p>
+<p class="col" id="col5">colonna 5</p>
+<p class="col" id="col6">colonna 6</p>
+</body>
 </html>
+<script>
+    $.ajax({
+
+        url: "/api/orders/costumers?cust_id=" + "{{username}}",
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            var event_data = '';
+            $.each(data, function (index, value) {
+                event_data += '<tr>';
+                event_data += '<td>' + value.num_ord + '</td>';
+                event_data += '<td>' + value.importOrder + '</td>';
+                event_data += '<td>' + value.advance_ord + '</td>';
+                event_data += '<td>' + value.ordDate + '</td>';
+                event_data += '<td><details><summary>' + value.Agent_code.agent_name + '</summary>' +
+                    '<div>' + 'id: ' + value.Agent_code.id + '<br>working area: ' + value.Agent_code.working_area + '<br>commission: ' +
+                    value.Agent_code.commission + '<br>telephone number: ' + value.Agent_code.phone_no + '<br>country: ' + value.Agent_code.country +
+                    '</div></details></td>';
+                event_data += '<td>' + value.Description + '</td>';
+                event_data += '</tr>';
+            });
+            $("#datiTab").append(event_data);
+        }
+    })
+</script>
