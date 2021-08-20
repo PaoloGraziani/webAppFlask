@@ -23,10 +23,9 @@
             <th>Importo ordine</th>
             <th>Acconto dell'ordine</th>
             <th>Data dell'ordine</th>
-            <th>Codice dell'utente</th>
-            <th>Codice dell'agente</th>
+            <th>Utente Associato</th>
+            <th>Agente Associato</th>
             <th>Descrizione dell'ordine</th>
-            <th></th>
             <th></th>
         </tr>
         </thead>
@@ -34,10 +33,7 @@
         <table id="datiTab">
         <tbody id="tab_orders"></tbody>
         </table>
-        <form action="insertOrder" method="POST">
-            <br>
-            <input class="modLink" type="submit" value="Inserisci ordine"/>
-        </form>
+
         <form action="logout">
             <br>
             <input id="modLogout" type="submit" value="Esci"/>
@@ -73,7 +69,6 @@
                         '</div></details></td>';
                     event_data += '<td>'+value.Description+'</td>';
                     event_data += '<td><a class="modLink" href="/changeOrder?ordNum='+value.num_ord+'"> Modifica </a></td>'
-                    event_data += '<td><a class="modLink" href="/deleteOrder?ordNum='+value.num_ord+'"> Elimina </a></td>'
                     event_data += '</tr>';
                 });
                 $("#datiTab").append(event_data);

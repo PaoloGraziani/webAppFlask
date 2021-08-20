@@ -13,7 +13,7 @@ def orders():
         orders = select_orders()
         return jsonify(orders)
     else:
-        return render_template('index.html', error=None)
+        return render_template('login.html', error=None)
 
 
 @app.route('/api/orders/agent/', methods=['GET'])
@@ -35,7 +35,7 @@ def sort_order(param):
                                                  '-cust_code', '-agent_code', '-ord_description']:
         return sort_orders(param)
     else:
-        return render_template("index.html")
+        return render_template("login.html")
 
 
 @app.route('/api/orders/dataorder', methods=['GET'])
@@ -46,7 +46,7 @@ def data_ord():
 
 @app.route('/')
 def index():
-    return render_template('index.html', error=None)
+    return render_template('login.html', error=None)
 
 
 @app.route('/login', methods=['POST', 'GET'])
@@ -67,7 +67,7 @@ def submit():
             return render_template('ordersCustomer.html',username=username)
     else:
         error = 'Yes'
-        return render_template("index.html", error=error)
+        return render_template("login.html", error=error)
 
 
 @app.route('/insertOrder', methods=['POST'])
@@ -106,7 +106,7 @@ def update():
 
 @app.route('/logout')
 def logout():
-    return render_template("index.html")
+    return render_template("login.html")
 
 
 @app.route('/insert', methods=['POST'])

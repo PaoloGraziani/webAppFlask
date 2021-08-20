@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,height=device-height,minimum-scale=1.0, maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
     <title>Lista ordini</title>
     <!-- File CSS -->
     <link rel="stylesheet" type="text/css" href="static/listOrders.css">
@@ -21,7 +21,7 @@
             <th aria-describedby="col2">Importo ordine</th>
             <th aria-describedby="col3">Acconto dell'ordine</th>
             <th aria-describedby="col4">Data dell'ordine</th>
-            <th aria-describedby="col5">Codice dell'agente</th>
+            <th aria-describedby="col5">Agente Associato</th>
             <th aria-describedby="col6">Descrizione dell'ordine</th>
         </tr>
         </thead>
@@ -64,7 +64,7 @@
                 event_data += '<td>' + value.advance_ord + '</td>';
                 event_data += '<td>' + value.ordDate + '</td>';
                 event_data += '<td><details><summary>' + value.Agent_code.agent_name + '</summary>' +
-                    '<div>' + 'id: ' + value.Agent_code.id + '<br>working area: ' + value.Agent_code.working_area + '<br>commission: ' +
+                    '<div>' + 'id: ' + value.Agent_code.agent_code + '<br>working area: ' + value.Agent_code.working_area + '<br>commission: ' +
                     value.Agent_code.commission + '<br>telephone number: ' + value.Agent_code.phone_no + '<br>country: ' + value.Agent_code.country +
                     '</div></details></td>';
                 event_data += '<td>' + value.Description + '</td>';
