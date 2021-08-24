@@ -4,13 +4,14 @@
     <list default="true" id="8bc61843-7457-4528-9c0d-61068f4f6d81" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/modify_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modify_order.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/orderAgent.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/orderAgent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ordersAgeMan.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ordersAgeMan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ordersCustomer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ordersCustomer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order.html" afterDir="false" />
     </list>
-    <list id="79ca003e-ea45-4c1a-9bdc-3fc9bc934ea2" name="Changes by Lorenzo" comment="" />
+    <list id="79ca003e-ea45-4c1a-9bdc-3fc9bc934ea2" name="Changes by Lorenzo" comment="">
+      <change beforePath="$PROJECT_DIR$/templates/modify_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modify_order.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +26,27 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/templates/modify_order.html">
+      <ranges>
+        <range start1="12" end1="15" start2="12" end2="13" changelist="79ca003e-ea45-4c1a-9bdc-3fc9bc934ea2" />
+        <range start1="16" end1="19" start2="14" end2="15" changelist="79ca003e-ea45-4c1a-9bdc-3fc9bc934ea2" />
+        <range start1="20" end1="24" start2="16" end2="17" changelist="79ca003e-ea45-4c1a-9bdc-3fc9bc934ea2" />
+        <range start1="25" end1="34" start2="18" end2="19" changelist="79ca003e-ea45-4c1a-9bdc-3fc9bc934ea2" />
+        <range start1="35" end1="39" start2="20" end2="21" changelist="79ca003e-ea45-4c1a-9bdc-3fc9bc934ea2" />
+        <range start1="46" end1="47" start2="28" end2="28" changelist="79ca003e-ea45-4c1a-9bdc-3fc9bc934ea2" />
+        <range start1="50" end1="51" start2="31" end2="32" changelist="8bc61843-7457-4528-9c0d-61068f4f6d81" />
+        <range start1="53" end1="54" start2="34" end2="35" changelist="8bc61843-7457-4528-9c0d-61068f4f6d81" />
+        <range start1="57" end1="58" start2="38" end2="38" changelist="8bc61843-7457-4528-9c0d-61068f4f6d81" />
+        <range start1="59" end1="59" start2="39" end2="43" changelist="8bc61843-7457-4528-9c0d-61068f4f6d81" />
+        <range start1="60" end1="65" start2="44" end2="50" changelist="8bc61843-7457-4528-9c0d-61068f4f6d81" />
+        <range start1="66" end1="66" start2="51" end2="53" changelist="8bc61843-7457-4528-9c0d-61068f4f6d81" />
+        <range start1="67" end1="67" start2="54" end2="60" changelist="8bc61843-7457-4528-9c0d-61068f4f6d81" />
+        <range start1="69" end1="70" start2="62" end2="66" changelist="8bc61843-7457-4528-9c0d-61068f4f6d81" />
+        <range start1="71" end1="72" start2="67" end2="68" changelist="79ca003e-ea45-4c1a-9bdc-3fc9bc934ea2" />
+      </ranges>
+    </file>
   </component>
   <component name="ProjectId" id="1uuFYOf2U6Y0OBvW6V9kpP97K5G" />
   <component name="ProjectViewState">
@@ -77,7 +99,8 @@
       <workItem from="1625560404001" duration="49584000" />
       <workItem from="1625721468136" duration="8476000" />
       <workItem from="1625753700356" duration="8779000" />
-      <workItem from="1629465699792" duration="1490000" />
+      <workItem from="1629465699792" duration="1917000" />
+      <workItem from="1629811240011" duration="10300000" />
     </task>
     <task id="LOCAL-00001" summary="Modifiche varie">
       <created>1625759272164</created>
@@ -86,18 +109,36 @@
       <option name="project" value="LOCAL" />
       <updated>1625759272165</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Modifiche varie">
+      <created>1629467251899</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1629467251899</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Modifiche varie" />
     <option name="LAST_COMMIT_MESSAGE" value="Modifiche varie" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/app_py$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1629466455415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/app_py$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1629823053683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/webAppFlask$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1625763146001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

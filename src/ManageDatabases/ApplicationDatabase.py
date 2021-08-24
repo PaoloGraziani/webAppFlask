@@ -179,10 +179,10 @@ def update_order(ord_num, import_order, order_amount, date_order, cust_id, agent
                                   password=Application_PASSWORD)
     with connection.cursor() as update_ord:
         update_ord.execute(
-            "UPDATE INTO ORDERS SET ord_num = ? SET ord_amount = ? SET advance_amount = ? SET ord_date=? SET agent_code = ? SET ord_description = ? ",
-            (ord_num, import_order, order_amount, date_order, cust_id, agent_code, description))
+            "UPDATE  ORDERS SET ord_amount =%s,advance_amount = %s,ord_date=%s,agent_code = %s,ord_description = %s WHERE ord_num=%s",
+            (import_order, order_amount, date_order,agent_code, description,ord_num))
         connection.commit()
-        ord.close()
+        closeCursor(update_ord)
     closeConnection(connection)
 
 

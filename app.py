@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect, session, jsonify
 
 from src.ManageDatabases.ApplicationDatabase import select_orders, select_orders_custumer, select_orders_agent, \
-    insert_order, delete_order, agentInformation, customersInformation, select_orderByID, sort_orders, agentOrderByID
+    insert_order, delete_order, agentInformation, customersInformation, select_orderByID, sort_orders, agentOrderByID, \
+    update_order
 from src.ManageDatabases.userAdmin import username_password_confirm, role_user
 
 app = Flask(__name__)
@@ -40,7 +41,8 @@ def sort_order(param):
 
 @app.route('/api/orders/dataorder', methods=['GET'])
 def data_ord():
-    ord_num = request.args.get("ord_num")
+    ord_num = request.args.get("ordNum")
+    print(ord_num)
     return jsonify(select_orderByID(ord_num))
 
 
@@ -83,13 +85,15 @@ def insertOrder():
 @app.route('/changeOrder')
 def changeOrder():
     ordNum = request.args.get("ordNum")
+    print(ordNum)
+
     function = 'Modifica'
     username= session['username']
     if session['role'] == 'DIRETTORE':
 
-        return render_template("modify_order.html",username=username)
+        return render_template("modify_order.html",username=username,ordNum=ordNum)
     if session['role'] == 'AGENTE':
-        return render_template("modify_order.html",username=username)
+        return render_template("modify_order.html",username=username,ordNum=ordNum)
 
 
 @app.route('/update', methods=['POST'])
@@ -101,7 +105,9 @@ def update():
     cust_code = request.form['cust_code']
     agent_code = request.form['agent_code']
     ord_description = request.form['ord_description']
-    return
+    username = session['username']
+    update_order(ord_num, ord_amount, advance_amount, ord_date,cust_code, agent_code, ord_description)
+    return render_template('orderAgent.html', username=username)
 
 
 @app.route('/logout')
@@ -119,6 +125,8 @@ def insert():
     agent_code = request.form['agent_code']
     ord_description = request.form['ord_description']
     username = session['username']
+    if float(ord_amount) < float(advance_amount):
+        return render_template('order.html',function='Inserisci')
     if session['role'] == 'DIRETTORE':
         insert_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description)
         return render_template('ordersAgeMan.html')
