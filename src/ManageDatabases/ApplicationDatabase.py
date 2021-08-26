@@ -7,52 +7,52 @@ from src.ManageDatabases.SettingDatabase import Application_HOST, Application_DA
     Application_PASSWORD, closeCursor, connectDatabase, closeConnection
 
 
-def sort_orders(par):
+def sort_orders(par, role, username):
     payload = []
     content = {}
     connection = connectDatabase(Application_HOST, Application_DATABASE, Application_USERNAME, Application_PASSWORD)
-    with connection.cursor() as ordini:
-        if par[0] == '-':
-            par = par[1:]
-            ordini.execute("SELECT * from ORDERS ORDER BY " + par + " DESC ")
-            sel_orders = ordini.fetchall()
-            for result in sel_orders:
-                cust_info = OrderByIDCustomer(result[4])
-                for res in cust_info:
-                    info = {'id': result[4], 'cust_name': res[1], 'cust_city': res[2], 'working_area': res[3],
-                            'cust_country': res[4], 'grade': res[5], 'opening_amt': res[6], 'receive_amt': res[7],
-                            'payment_amt': res[8], 'outstanding_amt': res[9], 'phone_no': res[10],
-                            'agent_code': res[11]}
-
-                    content = {'num_ord': result[0], 'importOrder': result[1], 'advance_ord': result[2],
-                               'ordDate': result[3],
-                               'Cust_id':
-                                   info
-                        , 'Agent_code': result[5], 'Description': result[6]}
-                payload.append(content)
-                content = {}
+    if par[0] == '-':
+        par= par[1:]
+        if (role == 'AGENTE'):
+            query = "SELECT * from ORDERS WHERE agent_code = %s ORDER BY " + par + " DESC"
+        elif (role == 'CLIENTE'):
+            query = "SELECT * from ORDERS WHERE cust_code= %s ORDER BY " + par + " DESC"
         else:
-            ordini.execute("SELECT * from ORDERS ORDER BY " + par + " ASC ")
+            query = "SELECT * from ORDERS ORDER BY " + par + " DESC"
+    else:
+        if (role == 'AGENTE'):
+            query = "SELECT * from ORDERS WHERE agent_code = %s ORDER BY " + par + " ASC"
+        elif (role == 'CLIENTE'):
+            query = "SELECT * from ORDERS WHERE cust_code = %s ORDER BY " + par + " ASC"
+        else:
+            query = "SELECT * from ORDERS ORDER BY " + par + " ASC"
+
+    with connection.cursor() as ordini:
+
+            if role =='AGENTE' or role =='CLIENTE':
+                ordini.execute(query,(username,))
+            else:
+                ordini.execute(query)
             sel_orders = ordini.fetchall()
+            print(sel_orders)
             for result in sel_orders:
-                cust_info = agentOrderByID(result[4])
+                cust_info = OrderByIDCustomer(result[4],connection)
+                agent_info= agentOrderByID(result[5],connection)
                 for res in cust_info:
                     info = {'id': result[4], 'cust_name': res[1], 'cust_city': res[2], 'working_area': res[3],
                             'cust_country': res[4], 'grade': res[5], 'opening_amt': res[6], 'receive_amt': res[7],
                             'payment_amt': res[8], 'outstanding_amt': res[9], 'phone_no': res[10],
                             'agent_code': res[11]}
+                for res in agent_info:
+                    agent_info = {'agent_code': res[0], 'agent_name': res[1], "working_area": res[2], "commission": res[3],
+                                  "phone_no": res[4], "country": res[5]}
 
-                    content = {'num_ord': result[0], 'importOrder': result[1], 'advance_ord': result[2],
-                               'ordDate': result[3],
-                               'Cust_id':
-                                   info
-                        , 'Agent_code': result[5], 'Description': result[6]}
+                content = {'num_ord': result[0], 'importOrder': result[1], 'advance_ord': result[2],
+                           'ordDate': result[3].strftime("%d/%m/%y"),
+                           'Cust_id': info, 'Agent_code': agent_info, 'Description': result[6]}
                 payload.append(content)
                 content = {}
-
-        closeCursor(ordini)
-    closeConnection(connection)
-
+    print(payload)
     return jsonify(payload)
 
 
@@ -69,21 +69,21 @@ def select_orders():
             cust_info = OrderByIDCustomer(result[4], connection)
             for res in cust_info:
                 info = {'id': result[4], 'cust_name': res[1], 'cust_city': res[2], 'working_area': res[3],
-                        'cust_country': res[4], 'grade': res[5], 'opening_amt': res[6], 'receive_amt': res[7],
-                        'payment_amt': res[8], 'outstanding_amt': res[9], 'phone_no': res[10],
+                        'cust_country': res[4], 'grade': float(res[5]), 'opening_amt': "{:.2f}".format(float(res[6])), 'receive_amt': "{:.2f}".format(float(res[7])),
+                        'payment_amt': "{:.2f}".format(float(res[8])), 'outstanding_amt': "{:.2f}".format(float(res[9])), 'phone_no': res[10],
                         'agent_code': res[11]}
             for res in agent_info:
-                agent_info = {'agent_code': res[0], 'agent_name': res[1], "working_area": res[2], "commission": res[3],
+                agent_info = {'agent_code': res[0], 'agent_name': res[1], "working_area": res[2], "commission": "{:.2f}".format(float(res[3])),
                               "phone_no": res[4], "country": res[5]}
-
-            content = {'num_ord': result[0], 'importOrder': result[1], 'advance_ord': result[2], 'ordDate': result[3],
+           #num decimale, importOrder decimale advance_ord decimali
+            content = {'num_ord': float(result[0]), 'importOrder': "{:.2f}".format(float(result[1])), 'advance_ord': "{:.2f}".format(float(result[2])), 'ordDate': result[3].strftime("%d/%m/%y"),
                        'Cust_id': info
-
                 , 'Agent_code': agent_info, 'Description': result[6]}
             payload.append(content)
             content = {}
         closeCursor(ordini)
     closeConnection(connection)
+    print(payload)
     return payload
 
 
@@ -100,7 +100,7 @@ def select_orders_custumer(custId):
                 info = {'agent_code': res[0], 'agent_name': res[1], "working_area": res[2], "commission": res[3],
                               "phone_no": res[4], "country": res[5]}
             content = {'num_ord': result[0], 'importOrder': result[1], 'advance_ord': result[2],
-                   'ordDate': result[3],
+                   'ordDate':  result[3].strftime("%d/%m/%y"),
                    'Cust_id': result[4]
                 , 'Agent_code': info, 'Description': result[6]}
             payload.append(content)
@@ -126,7 +126,7 @@ def select_orders_agent(agentId):
                         'payment_amt': res[8], 'outstanding_amt': res[9], 'phone_no': res[10],
                         'agent_code': res[11]}
 
-            content = {'num_ord': result[0], 'importOrder': result[1], 'advance_ord': result[2], 'ordDate': result[3],
+            content = {'num_ord': result[0], 'importOrder': result[1], 'advance_ord': result[2], 'ordDate':  result[3].strftime("%d/%m/%y"),
                        'Cust_id': info, 'Description': result[6]}
             payload.append(content)
             content = {}
@@ -143,7 +143,7 @@ def select_orderByID(ord_num):
         ord_id.execute("SELECT * from ORDERS WHERE ord_num = %s", (str(ord_num),))
         sel_orders = ord_id.fetchall()
         for result in sel_orders:
-            content = {'num_ord': result[0], 'importOrder': result[1], 'advance_ord': result[2], 'ordDate': result[3],
+            content = {'num_ord': float(result[0]), 'importOrder': float(result[1]), 'advance_ord': float(result[2]), 'ordDate': result[3].strftime("%Y-%m-%d"),
                        'Cust_id': result[4],'agent_code':result[5], 'Description': result[6]}
             payload.append(content)
         closeCursor(ord_id)

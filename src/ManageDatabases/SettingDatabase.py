@@ -12,7 +12,7 @@ Authentication_PASSWORD = "postgres"
 Inizializzazione DATABASE di Applicazione
 '''
 Application_HOST = "localhost"
-Application_DATABASE = "postgres"
+Application_DATABASE = "DbWebApp"
 Application_USERNAME = "postgres"
 Application_PASSWORD = "postgres"
 

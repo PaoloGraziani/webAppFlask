@@ -31,12 +31,16 @@ def costumers_orders():
 
 @app.route('/api/orders/sort_by/<param>')
 def sort_order(param):
-    if param in ['ord_num', 'ord_amount', 'advance_amount', 'ord_date', 'cust_code', 'agent_code',
-                 'ord_description'] or param in ['-ord_num', '-ord_amount', '-advance_amount', '-ord_date',
-                                                 '-cust_code', '-agent_code', '-ord_description']:
-        return sort_orders(param)
-    else:
-        return render_template("login.html")
+        ruolo = session['role']
+        username = session['username']
+        print(ruolo)
+        if param in ['ord_num', 'ord_amount', 'advance_amount', 'ord_date', 'cust_code', 'agent_code',
+                     'ord_description'] or param in ['-ord_num', '-ord_amount', '-advance_amount', '-ord_date',
+                                                     '-cust_code', '-agent_code', '-ord_description']:
+            return sort_orders(param,ruolo,username)
+        else:
+            return render_template("login.html")
+
 
 
 @app.route('/api/orders/dataorder', methods=['GET'])
@@ -150,7 +154,7 @@ def delete():
                                ruolo=session['role'], customerInfo=customersInformation())
 
 
-if __name__ == '__main__':  # python interpreter assigns "__main__" to the file you run
+if __name__ == '__main__':
     app.secret_key = 'super secret key'  # metti in un file di configurazione
     app.config['SESSION_TYPE'] = 'filesystem'  # metti su un file di configurazione
     app.run(debug=True)
