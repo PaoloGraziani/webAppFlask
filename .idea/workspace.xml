@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8bc61843-7457-4528-9c0d-61068f4f6d81" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/SettingDatabase.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageDatabases/SettingDatabase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modifyOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modify_order.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/orderAgent.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/orderAgent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ordersAgeMan.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ordersAgeMan.html" afterDir="false" />
-    </list>
-    <list id="4f3cb358-82d0-42d9-9ed2-321760e0529c" name="Changes by Lorenzo" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/modifyOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modify_order.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/orderAgent.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/orderAgent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ordersCustomer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ordersCustomer.html" afterDir="false" />
-    </list>
+    <list default="true" id="8bc61843-7457-4528-9c0d-61068f4f6d81" name="Default Changelist" comment="Modifiche varie" />
+    <list id="4f3cb358-82d0-42d9-9ed2-321760e0529c" name="Changes by Lorenzo" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,20 +18,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/templates/modify_order.html">
-      <ranges>
-        <range start1="47" end1="48" start2="47" end2="48" changelist="8bc61843-7457-4528-9c0d-61068f4f6d81" />
-        <range start1="61" end1="62" start2="61" end2="62" changelist="4f3cb358-82d0-42d9-9ed2-321760e0529c" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/templates/orderAgent.html">
-      <ranges>
-        <range start1="20" end1="30" start2="20" end2="30" changelist="8bc61843-7457-4528-9c0d-61068f4f6d81" />
-        <range start1="84" end1="84" start2="84" end2="123" changelist="4f3cb358-82d0-42d9-9ed2-321760e0529c" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProjectId" id="1uuFYOf2U6Y0OBvW6V9kpP97K5G" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -56,10 +30,27 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="js.last.introduce.type" value="LET" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="webAppFlask" type="PythonConfigurationType" factoryName="Python">
       <module name="webAppFlask" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -67,7 +58,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\UTENTE\AppData\Local\Programs\Python\Python37-32\python.exe" />
+      <option name="SDK_HOME" value="D:\Programmi\Python\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -98,6 +89,8 @@
       <workItem from="1629465699792" duration="1917000" />
       <workItem from="1629811240011" duration="13711000" />
       <workItem from="1629965764354" duration="20418000" />
+      <workItem from="1629996124596" duration="106000" />
+      <workItem from="1630048867710" duration="16301000" />
     </task>
     <task id="LOCAL-00001" summary="Modifiche varie">
       <created>1625759272164</created>
@@ -142,8 +135,12 @@
     <MESSAGE value="Modifiche varie" />
     <option name="LAST_COMMIT_MESSAGE" value="Modifiche varie" />
   </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/app_py$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1629995553305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/webAppFlask$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1625763146001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/webAppFlask$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1630089915302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

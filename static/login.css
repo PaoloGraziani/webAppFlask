@@ -68,7 +68,6 @@
 #marchio{
 	font-family: arial;
 
-	position: absolute;
-	bottom: 0.1em;
+	margin-top: 42em;
 	width: 100%;
 }

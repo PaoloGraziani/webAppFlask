@@ -10,9 +10,9 @@ h1{
 
   position: absolute;
   top: 0em;
-  left: 18%;
-  margin-left: 4.9em;
-  width: 10em;
+  left: 5%;
+
+  width: 28.2em;
 }
 
 #movimento{
@@ -48,12 +48,97 @@ td{
   border-right: inset white;
   border-bottom: inset white;
 
-  width: 6em;
+  width: 10.8em;
   height: 4em;
 }
 
 th{
-  width: 6.3em;
+  border: solid; /* Bordo superiore e sinistro */
+  border-right: inset white;
+  border-bottom: inset white;
+
+  width: 10.8em;
+}
+
+.testoTitTabDirigente{
+  float: left;
+  margin-left: 1.9em;
+  margin-top: 0.3em;
+  width: 7em;
+}
+
+.testoTitTabAgente{
+  float: left;
+  margin-left: 1.9em;
+  margin-top: 0.3em;
+  width: 7em;
+}
+
+.testoTitTabCliente{
+  float: left;
+  margin-left: 3.9em;
+  margin-top: 0.3em;
+  width: 7em;
+}
+
+.thCliente{
+  width: 14.6em;
+}
+
+.tdCliente{
+  width: 14.6em;
+}
+
+.pozioneBt{
+  float: right;
+}
+
+.ordina1{
+  color: #F8F8FF;
+  background-color: #FF8C00;
+  text-align: center;
+  font-weight: 800;
+  font-family: Arial;
+  border: 0em solid #FF8C00;
+  border-radius: 1em 1em 0.2em 0.2em;
+
+  float: right;
+  margin: 0.1em 0.1em 0.1em 0.1em;
+
+  transition-duration: 0.5s;
+  /*Il cursore diventa la mamo*/
+  cursor: pointer;
+}
+
+/*Quando sei sul link*/
+.ordina1:hover {
+  color: #FF8C00;
+  background-color: #F8F8FF;
+  border: 0em solid #F8F8FF;
+}
+
+.ordina2{
+  color: #F8F8FF;
+  background-color: #FF8C00;
+  text-align: center;
+  font-weight: 800;
+  font-family: Arial;
+  border: 0em solid #FF8C00;
+  border-radius: 0.2em 0.2em 1em 1em;
+
+  float: right;
+  margin: 0.1em 0.1em 0.1em 0.1em;
+
+  transition-duration: 0.5s;
+  /*Il cursore diventa la mamo*/
+  cursor: pointer;
+}
+
+/*Quando sei sul link*/
+.ordina2:hover {
+  color: #FF8C00;
+  background-color: #F8F8FF;
+  border: 0em solid #F8F8FF;
 }
 
 /*Quando non sei sul link*/

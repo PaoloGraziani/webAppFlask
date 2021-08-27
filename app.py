@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, jsonify
 
-from src.ManageDatabases.ApplicationDatabase import select_orders, select_orders_custumer, select_orders_agent, \
+from src.ManageDatabases.applicationDatabase import select_orders, select_orders_custumer, select_orders_agent, \
     insert_order, delete_order, agentInformation, customersInformation, select_orderByID, sort_orders, agentOrderByID, \
     update_order
 from src.ManageDatabases.userAdmin import username_password_confirm, role_user
@@ -66,11 +66,11 @@ def submit():
         session['role'] = role
 
         if role == "DIRETTORE":
-            return render_template('ordersAgeMan.html')
+            return render_template('ordersManager.html')
         if role == "AGENTE":
-            return render_template('orderAgent.html', username=username)
+            return render_template('ordersAgent.html', username=username)
         if role == "CLIENTE":
-            return render_template('ordersCustomer.html',username=username)
+            return render_template('ordersCustomer.html', username=username)
     else:
         error = 'Yes'
         return render_template("login.html", error=error)
@@ -78,12 +78,10 @@ def submit():
 
 @app.route('/insertOrder', methods=['POST'])
 def insertOrder():
-    function = 'Inserisci'
     if session['role'] == 'DIRETTORE':
-        return render_template("order.html", function=function, customers=customersInformation(),
-                               agents=agentInformation())
+        return render_template("insertOrder.html", customers=customersInformation(), agents=agentInformation())
     if session['role'] == 'AGENTE':
-        return render_template("order.html", function=function, customers=customersInformation())
+        return render_template("insertOrder.html", customers=customersInformation())
 
 
 @app.route('/changeOrder')
@@ -95,9 +93,9 @@ def changeOrder():
     username= session['username']
     if session['role'] == 'DIRETTORE':
 
-        return render_template("modify_order.html",username=username,ordNum=ordNum)
+        return render_template("modifyOrder.html", username=username, ordNum=ordNum)
     if session['role'] == 'AGENTE':
-        return render_template("modify_order.html",username=username,ordNum=ordNum)
+        return render_template("modifyOrder.html", username=username, ordNum=ordNum)
 
 
 @app.route('/update', methods=['POST'])
@@ -111,7 +109,7 @@ def update():
     ord_description = request.form['ord_description']
     username = session['username']
     update_order(ord_num, ord_amount, advance_amount, ord_date,cust_code, agent_code, ord_description)
-    return render_template('orderAgent.html', username=username)
+    return render_template('ordersAgent.html', username=username)
 
 
 @app.route('/logout')
@@ -130,13 +128,13 @@ def insert():
     ord_description = request.form['ord_description']
     username = session['username']
     if float(ord_amount) < float(advance_amount):
-        return render_template('order.html',function='Inserisci')
+        return render_template('insertOrder.html')
     if session['role'] == 'DIRETTORE':
         insert_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description)
-        return render_template('ordersAgeMan.html')
+        return render_template('ordersManager.html')
     if session['role'] == 'AGENTE':
         insert_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description)
-        return render_template('ordersAgeMan.html')
+        return render_template('ordersAgent.html', username=username)
 
 
 @app.route('/deleteOrder')
@@ -146,11 +144,11 @@ def delete():
     username = session['username']
     if session['role'] == 'DIRETTORE':
         delete_order(id_ord)
-        return render_template('ordersAgeMan.html', orders=select_orders(), ruolo=session['role'],
+        return render_template('ordersManager.html', orders=select_orders(), ruolo=session['role'],
                                customerInfo=customersInformation(), agentInfo=agentInformation())
     if session['role'] == 'AGENTE':
         delete_order(id_ord)
-        return render_template('ordersAgeMan.html', orders=select_orders_agent(username),
+        return render_template('ordersAgent.html', orders=select_orders_agent(username),
                                ruolo=session['role'], customerInfo=customersInformation())
 
 
