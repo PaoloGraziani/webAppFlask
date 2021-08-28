@@ -83,7 +83,7 @@ p{
     border: 0.1em solid #008080;
     border-radius: 1em;
     margin-top: 0em;
-    margin-left: 4.1em;
+    margin-left: 4.5em;
     float: left;
 }
 
@@ -96,7 +96,7 @@ p{
     border: 0.1em solid #008080;
     border-radius: 1em;
     margin-top: 0em;
-    margin-right: 4.1em;
+    margin-right: 4.8em;
     float: right;
 }
 
@@ -142,9 +142,8 @@ p{
 
 /*Quando sei sul bottone*/
 .bt1:hover {
-    color: black;
+    color: #008080;
     background-color: #F8F8FF;
-
     border: 0.3em solid #F8F8FF;
 }
 
@@ -168,8 +167,7 @@ p{
 
 /*Quando sei sul bottone*/
 .bt2:hover {
-    color: black;
-
+    color: #008080;
     background-color: #F8F8FF;
     border: 0.3em solid #F8F8FF;
 }

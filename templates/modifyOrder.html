@@ -6,7 +6,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
 
-    <body>
+    <body id="corpo">
         <h1 class="titolo">Modifica i dati dell'ordine</h1>
 
         <div class="dati">
@@ -31,8 +31,6 @@
 </html>
 
 <script>
-    username = "{{ username }}"
-
     $.ajax({
         url: "/api/orders/dataorder?ordNum={{ ordNum }}",
         method: 'GET',
@@ -55,11 +53,13 @@
                 event_data2 += '<input class="campo" name="ord_date" type="date" min="2000-01-02" max="2100-12-31" value="'+value.ordDate+'" required/>';
 
                 event_data3 += '<p>Codice cliente&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Codice agente</p>';
-                event_data3 += '<select class="campoCliente" name="cust_code" required> <option value="'+ value.Cust_id +'"></option> </select>';
-                event_data3 += '<input class="campoAgente2" name="agent_code" type="text" value="'+username+'" readonly/>';
+                event_data3 += '<select class="campoCliente" name="cust_code" required> {% for row in infoCustomer %} <option value="{{row[0]}}"> {{row[0]}} </option> {% endfor %} <option value="'+value.Cust_id+'" selected>'+value.Cust_id+'</option> </select>';
+                event_data3 += '{%if role == 'DIRETTORE'%} <select class="campoAgente1" name="agent_code" required> {% for row in infoAgent %} <option value="{{row[0]}}"> {{row[0]}} </option> {% endfor %} <option value="'+value.Agent_code+'" selected>'+value.Agent_code+'</option> </select> {%endif%}';
+                event_data3 += '{%if role == 'AGENTE'%} <input class="campoAgente2" name="agent_code" type="text" value="'+value.Agent_code+'" readonly/> {%endif%}';
 
                 event_data4 += '<p>Descrizione ordine</p>';
-                event_data4 += '<textarea class="campoDescrizione" name="ord_description" maxlength="60" placeholder="Descrizione ordine..." value="'+value.Description+'"required></textarea>';
+                event_data4 += '<textarea id="textarea" class="campoDescrizione" name="ord_description" maxlength="60" placeholder="Descrizione ordine..." required>' + value.Description + '</textarea>';
+
             });
             $("#ord_num").append(event_data);
             $("#prezzi").append(event_data1);

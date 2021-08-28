@@ -78,24 +78,20 @@ def submit():
 
 @app.route('/insertOrder', methods=['POST'])
 def insertOrder():
-    if session['role'] == 'DIRETTORE':
-        return render_template("insertOrder.html", customers=customersInformation(), agents=agentInformation())
-    if session['role'] == 'AGENTE':
-        return render_template("insertOrder.html", customers=customersInformation())
+    infoCustomer = customersInformation()
+    return render_template("insertOrder.html", infoCustomer=infoCustomer, username=session['username'])
 
 
 @app.route('/changeOrder')
 def changeOrder():
     ordNum = request.args.get("ordNum")
-    print(ordNum)
+    infoCustomer = customersInformation()
+    infoAgent = agentInformation()
 
-    function = 'Modifica'
-    username= session['username']
     if session['role'] == 'DIRETTORE':
-
-        return render_template("modifyOrder.html", username=username, ordNum=ordNum)
+        return render_template("modifyOrder.html", ordNum=ordNum, role=session['role'], infoCustomer=infoCustomer, infoAgent=infoAgent)
     if session['role'] == 'AGENTE':
-        return render_template("modifyOrder.html", username=username, ordNum=ordNum)
+        return render_template("modifyOrder.html", ordNum=ordNum, role=session['role'], infoCustomer=infoCustomer)
 
 
 @app.route('/update', methods=['POST'])

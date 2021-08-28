@@ -7,7 +7,7 @@
         <title>Nuovo Ordine</title>
     </head>
 
-    <body>
+    <body id="corpo">
         <h1 class="titolo">Inserisci i dati del nuovo ordine</h1>
 
         <div class="dati">
@@ -32,41 +32,34 @@
 </html>
 
 <script>
-    username = "{{ username }}"
+    document.addEventListener('DOMContentLoaded', function (data) {
+        var event_data = '';
+        var event_data1 = '';
+        var event_data2 = '';
+        var event_data3 = '';
+        var event_data4 = '';
 
-    $.ajax({
-        url: "/api/orders/dataorder?ordNum={{ ordNum }}",
-        method: 'GET',
-        dataType: 'json',
-        success:function (data) {
-            var event_data = '';
-            var event_data1 = '';
-            var event_data2 = '';
-            var event_data3 = '';
-            var event_data4 = '';
-            $.each(data, function (index, value) {
-                event_data += '<p>N° ordine</p>';
-                event_data += '<input class="campo" name="ord_num" type="text" placeholder="000000" readonly/>';
+        event_data += '<p>N° ordine</p>';
+        event_data += '<input class="campo" name="ord_num" type="text" placeholder="000000" pattern="[0-9]{6}" readonly/>';
 
-                event_data1 += '<p>Prezzo&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Anticipo</p>';
-                event_data1 += '<input class="campo" name="ord_amount" type="text" placeholder="0.00" maxlength="15" pattern="[0-9]+\.[0-9]{2}" required/>';
-                event_data1 += '<input class="campo" name="advance_amount" type="text" placeholder="0.00" maxlength="15" pattern="[0-9]+\.[0-9]{2}" required/>';
+        event_data1 += '<p>Prezzo&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Anticipo</p>';
+        event_data1 += '<input class="campo" name="ord_amount" type="text" placeholder="0.00" maxlength="15" pattern="[0-9]+\.[0-9]{2}" required/>';
+        event_data1 += '<input class="campo" name="advance_amount" type="text" placeholder="0.00" maxlength="15" pattern="[0-9]+\.[0-9]{2}" required/>';
 
-                event_data2 += '<p>Data ordine</p>';
-                event_data2 += '<input class="campo" name="ord_date" type="date" min="2000-01-02" max="2100-12-31" required/>';
+        event_data2 += '<p>Data ordine</p>';
+        event_data2 += '<input class="campo" name="ord_date" type="date" min="2000-01-02" max="2100-12-31" required/>';
 
-                event_data3 += '<p>Codice cliente&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Codice agente</p>';
-                event_data3 += '<select class="campoCliente" name="cust_code" required> <option value="'+ value.Cust_id +'"></option> </select>';
-                event_data3 += '<input class="campoAgente2" name="agent_code" type="text" value="'+username+'" readonly/>';
+        event_data3 += '<p>Codice cliente&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Codice agente</p>';
+        event_data3 += '<select class="campoCliente" name="cust_code" required> {% for row in infoCustomer %} <option value="{{row[0]}}"> {{row[0]}} </option> {% endfor %} </select>';
+        event_data3 += '<input class="campoAgente2" name="agent_code" type="text" value="{{ username }}" readonly/>';
 
-                event_data4 += '<p>Descrizione ordine</p>';
-                event_data4 += '<textarea class="campoDescrizione" name="ord_description" maxlength="60" placeholder="Descrizione ordine..." required></textarea>';
-            });
-            $("#ord_num").append(event_data);
-            $("#prezzi").append(event_data1);
-            $("#data").append(event_data2);
-            $("#codiceCA").append(event_data3);
-            $("#descrizione").append(event_data4);
-        },
-    })
+        event_data4 += '<p>Descrizione ordine</p>';
+        event_data4 += '<textarea class="campoDescrizione" name="ord_description" maxlength="60" placeholder="Descrizione ordine..." required></textarea>';
+
+        $("#ord_num").append(event_data);
+        $("#prezzi").append(event_data1);
+        $("#data").append(event_data2);
+        $("#codiceCA").append(event_data3);
+        $("#descrizione").append(event_data4);
+    }, false);
 </script>
