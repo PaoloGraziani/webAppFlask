@@ -1,6 +1,6 @@
 import psycopg2
 import hashlib
-from src.ManageDatabases.settingDatabase import Authentication_HOST, Authentication_DATABASE, Authentication_USERNAME, \
+from src.ManageDatabases.SettingDatabase import Authentication_HOST, Authentication_DATABASE, Authentication_USERNAME, \
     Authentication_PASSWORD, closeCursor, connectDatabase, closeConnection
 
 

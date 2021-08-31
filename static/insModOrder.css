@@ -1,7 +1,12 @@
 #corpo{
     background-color: #FFF8DC;
 }
-
+#errore{
+    background-color: red;
+    color: #F8F8FF;
+    font-family: Arial;
+    font-size: 3em;
+}
 .titolo{
     color: #008080;
     font-size: 3em;

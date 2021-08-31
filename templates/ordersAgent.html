@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lista ordini</title>
         <link rel="stylesheet" type="text/css" href="/static/listOrders.css">
+        <link rel="javascript" type="text/javascript" href="/static/js/ajax_agents_populate_table">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
 
@@ -22,9 +23,9 @@
                                 Numero ordine
                             </div>
                             <div class="pozioneBt">
-                                <button class="ordina1" sort="ord_num">+</button>
+                                <button  class="ordina1" sort="ord_num">+</button>
                                 <br>
-                                <button class="ordina2" sort="-ord_num">&thinsp;-&thinsp;</button>
+                                <button class="ordina1" sort="-ord_num">&thinsp;-&thinsp;</button>
                             </div>
                         </th>
                         <th>
@@ -34,7 +35,7 @@
                             <div class="pozioneBt">
                                 <button class="ordina1" sort="ord_amount">+</button>
                                 <br>
-                                <button class="ordina2" sort="-ord_amount">&thinsp;-&thinsp;</button>
+                                <button class="ordina1" sort="-ord_amount">&thinsp;-&thinsp;</button>
                             </div>
                         </th>
                         <th>
@@ -44,7 +45,7 @@
                             <div class="pozioneBt">
                                 <button class="ordina1" sort="advance_amount">+</button>
                                 <br>
-                                <button class="ordina2" sort="-advance_amount">&thinsp;-&thinsp;</button>
+                                <button class="ordina1" sort="-advance_amount">&thinsp;-&thinsp;</button>
                             </div>
                         </th>
                         <th>
@@ -54,7 +55,7 @@
                             <div class="pozioneBt">
                                 <button class="ordina1" sort="ord_date">+</button>
                                 <br>
-                                <button class="ordina2" sort="-ord_date">&thinsp;-&thinsp;</button>
+                                <button class="ordina1" sort="-ord_date">&thinsp;-&thinsp;</button>
                             </div>
                         </th>
                         <th>
@@ -64,7 +65,7 @@
                             <div class="pozioneBt">
                                 <button class="ordina1" sort="cust_code">+</button>
                                 <br>
-                                <button class="ordina2" sort="-cust_code">&thinsp;-&thinsp;</button>
+                                <button class="ordina1" sort="-cust_code">&thinsp;-&thinsp;</button>
                             </div>
                         </th>
                         <th>
@@ -74,7 +75,7 @@
                             <div class="pozioneBt">
                                 <button class="ordina1" sort="ord_description">+</button>
                                 <br>
-                                <button class="ordina2" sort="-ord_description">&thinsp;-&thinsp;</button>
+                                <button class="ordina1" sort="-ord_description">&thinsp;-&thinsp;</button>
                             </div>
                         </th>
                         <th></th>
@@ -134,46 +135,7 @@
         /*
          * Ordinamento colonne
          */
-        $(".ordina1").click(function(event) {
-            sort = $(this).attr('sort');
-            console.log(sort) // stampa il nome della cella se è crescente, stampa -[nome della cella se è decrescente]
-            $("#datiTab").empty(); //svuoto la tabella prima di riempirla di nuovo
-            $.ajax({
-
-                url: "/api/orders/sort_by/"+sort,
-                method: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    console.log(data);
-                    var event_data = '';
-                    $.each(data, function (index, value) {
-
-                        event_data += '<tr>';
-                        event_data += '<td>' + value.num_ord + '</td>';
-                        event_data += '<td>' + value.importOrder + '</td>';
-                        event_data += '<td>' + value.advance_ord + '</td>';
-                        event_data += '<td>' + value.ordDate + '</td>';
-                        event_data += '<td><details><summary>' + value.Cust_id.cust_name + '</summary>' +
-                            '<div>' + 'id: ' + value.Cust_id.id + '<br>city: ' + value.Cust_id.cust_city + '<br>working area: ' + value.Cust_id.working_area + '<br>country: ' + value.Cust_id.cust_country +
-                            '<br>grade: ' + value.Cust_id.grade + '<br>opening amt: ' + value.Cust_id.opening_amt + '<br>receive amt: ' + value.Cust_id.receive_amt + '<br>payment amt: '
-                            + value.Cust_id.payment_amt + '<br>out standing: ' + value.Cust_id.outstanding_amt + '<br>telephone number: ' + value.Cust_id.phone_no +
-                            '</div></details></td>';
-                        event_data += '<td>' + value.Description + '</td>';
-                        event_data += '<td><a class="modLink" href="/changeOrder?ordNum=' + value.num_ord + '"> Modifica </a></td>'
-                        event_data += '<td><a class="modLink" href="/deleteOrder?ordNum='+value.num_ord+'"> Elimina </a></td>'
-                        event_data += '</tr>';
-                    });
-                    $("#datiTab").append(event_data);
-                },
-            });
-        })
-    })
-
-    $(document).ready(function() {
-        /*
-         * Ordinamento colonne
-         */
-        $(".ordina2").click(function(event) {
+        $(".ordina").click(function(event) {
             sort = $(this).attr('sort');
             console.log(sort) // stampa il nome della cella se è crescente, stampa -[nome della cella se è decrescente]
             $("#datiTab").empty(); //svuoto la tabella prima di riempirla di nuovo
