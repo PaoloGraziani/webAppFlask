@@ -4,6 +4,7 @@
 		<title>Pagina di login</title>
 		<link rel="stylesheet" type="text/css" href="/static/login.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	</head>
 
 	<body id="corpo">
@@ -14,17 +15,30 @@
 			<h1 id="titolo">Login</h1>
 
 			<form action="login" method="post">
-				<input class="campo" name="username" type="text" maxlength="6" pattern="[ACD0-9]{4,}" placeholder="Username" required/>
-				<input class="campo" name="password" type="password" maxlength="16" placeholder="Password" required/>
-				<input type="hidden" name="ruolo" />
-				<br/><br/><br/>
-				<input id="bottone" type="submit" value="Accedi"/>
+				<div class="campo"id="username"></div>
+				<div class="campo" id="password"></div>
+
+
 			</form>
 		</div>
 
 		<div id="marchio">
-			<hr/>
-			<p>Paolo Graziani - Lorenzo Genghini © 2021</p>
+
 		</div>
+
 	</body>
-</html>
+    <script>
+    var event_data = '';
+    var event_data1 = '';
+    var event_data2 = '';
+    document.addEventListener('DOMContentLoaded', function (data) {
+        event_data += '  <input id="username"class="campo" name="username" type="text" maxlength="6" pattern="[ACD0-9]{4,}" placeholder="Username" required/>';
+        event_data1 += '<input class="campo" name="password" type="password" maxlength="16" placeholder="Password" required/><br><br><br>';
+        event_data1 += '<input id="bottone" type="submit" value="Accedi"/>';
+        event_data2 += '<div id="marchio"> <hr/> <p>Paolo Graziani - Lorenzo Genghini © 2021</p> </div>';
+        $("#username").append(event_data);
+        $("#password").append(event_data1);
+        $("#marchio").append(event_data2)
+    },false);
+    </script>
+

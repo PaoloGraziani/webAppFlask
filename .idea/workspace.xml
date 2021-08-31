@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe6dc3f6-0386-4313-abbd-9027cbbac264" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/js/ajax_director_pupulate_table.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Agents/agents.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Customer/customer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Manager/manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Order/order.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Order/sort.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/insert.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webAppFlask.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webAppFlask.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/userAdmin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageDatabases/AuthDatabase/userAdmin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/order.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/insModOrder.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/insModOrder.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/insertOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/insertOrder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modifyOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modifyOrder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ordersAgent.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ordersAgent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ordersManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ordersManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
     </list>
     <list id="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" name="Changes by Lorenzo" comment="">
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
@@ -42,55 +25,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/app.py">
-      <ranges>
-        <range start1="0" end1="1" start2="0" end2="1" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="2" end1="6" start2="2" end2="10" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="9" end1="9" start2="13" end2="21" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="10" end1="10" start2="22" end2="26" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="19" end1="19" start2="35" end2="38" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="21" end1="23" start2="40" end2="45" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="24" end1="24" start2="46" end2="50" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="26" end1="29" start2="52" end2="57" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="31" end1="31" start2="59" end2="62" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="33" end1="33" start2="64" end2="65" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="44" end1="45" start2="76" end2="79" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="49" end1="50" start2="83" end2="110" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="52" end1="52" start2="112" end2="131" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="55" end1="55" start2="134" end2="135" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
-        <range start1="56" end1="57" start2="136" end2="139" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="76" end1="76" start2="158" end2="159" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
-        <range start1="77" end1="78" start2="160" end2="163" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="84" end1="84" start2="169" end2="196" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="94" end1="94" start2="206" end2="207" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
-        <range start1="95" end1="96" start2="208" end2="211" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="106" end1="127" start2="221" end2="222" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="128" end1="132" start2="223" end2="228" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="133" end1="133" start2="229" end2="230" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
-        <range start1="134" end1="135" start2="231" end2="234" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="140" end1="144" start2="239" end2="239" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="147" end1="148" start2="242" end2="266" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="154" end1="155" start2="272" end2="272" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/templates/modifyOrder.html">
-      <ranges>
-        <range start1="12" end1="13" start2="12" end2="13" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="23" end1="24" start2="23" end2="24" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="25" end1="27" start2="25" end2="27" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="29" end1="29" start2="29" end2="30" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="32" end1="33" start2="33" end2="53" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="38" end1="38" start2="58" end2="59" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="45" end1="46" start2="66" end2="67" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="48" end1="50" start2="69" end2="71" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
-        <range start1="55" end1="58" start2="76" end2="85" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="59" end1="59" start2="86" end2="99" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="63" end1="63" start2="103" end2="104" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-        <range start1="68" end1="68" start2="109" end2="111" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
-      </ranges>
-    </file>
   </component>
   <component name="ProjectId" id="1xRhn0KXMtzVZCryQnNf0JAmOuH" />
   <component name="ProjectViewState">
@@ -142,14 +76,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630323971497</updated>
-      <workItem from="1630323972758" duration="31991000" />
+      <workItem from="1630323972758" duration="35331000" />
     </task>
+    <task id="LOCAL-00001" summary="Modifiche varie">
+      <created>1630430467930</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1630430467930</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Modifiche varie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifiche varie" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/webAppFlask$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1630415173755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/webAppFlask$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1630433081301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
