@@ -17,6 +17,7 @@ def customers() :
      role = session['role']
      username = session['username']
      if role == 'DIRETTORE' or role == 'AGENTE':
+         print(username)
          return jsonify(customer_list(username,None))
          
 

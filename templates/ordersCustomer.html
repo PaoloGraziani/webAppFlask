@@ -6,7 +6,10 @@
         <meta name="viewport" content="width=device-width,height=device-height,minimum-scale=1.0, maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
         <title>Lista ordini</title>
         <link rel="stylesheet" type="text/css" href="static/css/listOrders.css">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src = "static/js/sort.js"></script>
+        <script src = "static/js/populatecustomersTable.js"></script>
     </head>
 
     <body class="corpo">
@@ -24,7 +27,7 @@
                         <div class="pozioneBt">
                             <button class="ordina1" sort="ord_num">+</button>
                             <br>
-                            <button class="ordina2" sort="-ord_num">&thinsp;-&thinsp;</button>
+                            <button class="ordina1" sort="-ord_num">&thinsp;-&thinsp;</button>
                         </div>
                     </th>
                     <th aria-describedby="col2" class="thCliente">
@@ -34,7 +37,7 @@
                         <div class="pozioneBt">
                             <button class="ordina1" sort="ord_amount">+</button>
                             <br>
-                            <button class="ordina2" sort="-ord_amount">&thinsp;-&thinsp;</button>
+                            <button class="ordina1" sort="-ord_amount">&thinsp;-&thinsp;</button>
                         </div>
                     </th>
                     <th aria-describedby="col3" class="thCliente">
@@ -44,7 +47,7 @@
                         <div class="pozioneBt">
                             <button class="ordina1" sort="advance_amount">+</button>
                             <br>
-                            <button class="ordina2" sort="-advance_amount">&thinsp;-&thinsp;</button>
+                            <button class="ordina1" sort="-advance_amount">&thinsp;-&thinsp;</button>
                         </div>
                     </th>
                     <th aria-describedby="col4" class="thCliente">
@@ -54,7 +57,7 @@
                         <div class="pozioneBt">
                             <button class="ordina1" sort="ord_date">+</button>
                             <br>
-                            <button class="ordina2" sort="-ord_date">&thinsp;-&thinsp;</button>
+                            <button class="ordina1" sort="-ord_date">&thinsp;-&thinsp;</button>
                         </div>
                     </th>
                     <th aria-describedby="col5" class="thCliente">
@@ -64,7 +67,7 @@
                         <div class="pozioneBt">
                             <button class="ordina1" sort="agent_code">+</button>
                             <br>
-                            <button class="ordina2" sort="-agent_code">&thinsp;-&thinsp;</button>
+                            <button class="ordina1" sort="-agent_code">&thinsp;-&thinsp;</button>
                         </div>
                     </th>
                     <th aria-describedby="col6" class="thCliente">
@@ -74,7 +77,7 @@
                         <div class="pozioneBt">
                             <button class="ordina1" sort="ord_description">+</button>
                             <br>
-                            <button class="ordina2" sort="-ord_description">&thinsp;-&thinsp;</button>
+                            <button class="ordina1" sort="-ord_description">&thinsp;-&thinsp;</button>
                         </div>
                     </th>
                 </tr>
@@ -99,102 +102,8 @@
         <p class="col" id="col5">colonna 5</p>
         <p class="col" id="col6">colonna 6</p>
     </body>
+<script>
+    var username = '{{ username }}';
+</script>
 </html>
 
-<script>
-    $.ajax({
-        url: "/api/orders/costumers?cust_id={{username}}",
-        method: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            console.log(data);
-            var event_data = '';
-            $.each(data, function (index, value) {
-                event_data += '<tr>';
-                event_data += '<td class="tdCliente">' + value.num_ord + '</td>';
-                event_data += '<td class="tdCliente">' + value.importOrder + '</td>';
-                event_data += '<td class="tdCliente">' + value.advance_ord + '</td>';
-                event_data += '<td class="tdCliente">' + value.ordDate + '</td>';
-                event_data += '<td class="tdCliente"><details><summary>' + value.Agent_code.agent_name + '</summary>' +
-                    '<div>' + 'id: ' + value.Agent_code.agent_code + '<br>working area: ' + value.Agent_code.working_area + '<br>commission: ' +
-                    value.Agent_code.commission + '<br>telephone number: ' + value.Agent_code.phone_no + '<br>country: ' + value.Agent_code.country +
-                    '</div></details></td>';
-                event_data += '<td class="tdCliente">' + value.Description + '</td>';
-                event_data += '</tr>';
-            });
-            $("#datiTab").append(event_data);
-        }
-    })
-
-    $(document).ready(function() {
-        /*
-         * Ordinamento colonne
-         */
-        $(".ordina1").click(function(event) {
-            sort = $(this).attr('sort');
-            console.log(sort) // stampa il nome della cella se è crescente, stampa -[nome della cella se è decrescente]
-            $("#datiTab").empty(); //svuoto la tabella prima di riempirla di nuovo
-            $.ajax({
-
-                url: "/api/orders/sort_by/"+sort,
-                method: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    console.log(data);
-                    var event_data = '';
-                    $.each(data, function (index, value) {
-
-                        event_data += '<tr>';
-                        event_data += '<td>' + value.num_ord + '</td>';
-                        event_data += '<td>' + value.importOrder + '</td>';
-                        event_data += '<td>' + value.advance_ord + '</td>';
-                        event_data += '<td>' + value.ordDate + '</td>';
-                        event_data += '<td><details><summary>' + value.Agent_code.agent_name + '</summary>' +
-                            '<div>' + 'id: ' + value.Agent_code.id + '<br>working area: ' + value.Agent_code.working_area + '<br>commission: ' +
-                            value.Agent_code.commission + '<br>telephone number: ' + value.Agent_code.phone_no + '<br>country: ' + value.Agent_code.country +
-                            '</div></details></td>';
-                        event_data += '<td>' + value.Description + '</td>';
-                        event_data += '</tr>';
-                    });
-                    $("#datiTab").append(event_data);
-                },
-            });
-        })
-    })
-
-    $(document).ready(function() {
-        /*
-         * Ordinamento colonne
-         */
-        $(".ordina2").click(function(event) {
-            sort = $(this).attr('sort');
-            console.log(sort) // stampa il nome della cella se è crescente, stampa -[nome della cella se è decrescente]
-            $("#datiTab").empty(); //svuoto la tabella prima di riempirla di nuovo
-            $.ajax({
-
-                url: "/api/orders/sort_by/"+sort,
-                method: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    console.log(data);
-                    var event_data = '';
-                    $.each(data, function (index, value) {
-
-                        event_data += '<tr>';
-                        event_data += '<td>' + value.num_ord + '</td>';
-                        event_data += '<td>' + value.importOrder + '</td>';
-                        event_data += '<td>' + value.advance_ord + '</td>';
-                        event_data += '<td>' + value.ordDate + '</td>';
-                        event_data += '<td><details><summary>' + value.Agent_code.agent_name + '</summary>' +
-                            '<div>' + 'id: ' + value.Agent_code.id + '<br>working area: ' + value.Agent_code.working_area + '<br>commission: ' +
-                            value.Agent_code.commission + '<br>telephone number: ' + value.Agent_code.phone_no + '<br>country: ' + value.Agent_code.country +
-                            '</div></details></td>';
-                        event_data += '<td>' + value.Description + '</td>';
-                        event_data += '</tr>';
-                    });
-                    $("#datiTab").append(event_data);
-                },
-            });
-        })
-    })
-</script>

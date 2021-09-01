@@ -3,10 +3,15 @@ beforeSubmit = function(){
     var prezzo = document.getElementById('ord_amount').value;
     console.log(acconto)
     console.log(parseFloat(acconto)>parseFloat(prezzo));
-    if(parseFloat(acconto) > parseFloat(prezzo)) {
+    if(parseFloat(acconto) > parseFloat(prezzo) || parseFloat(prezzo)==0.00) {
+        if( parseFloat(prezzo == 0.00)){
+            document.getElementById('errore').innerHTML = "Il prezzo deve essere maggiore di 0.00 €";
+        }
+        if(parseFloat(acconto) > parseFloat(prezzo)){
         console.log('sono qui!');
         document.getElementById('errore').innerHTML = "Errore nell'inserimento: Importo < acconto o Ordine già presente";
-        return false;//your before submit logic
+        }
+        return false;
     }
     $("#insert").submit();
 }
