@@ -3,12 +3,29 @@
   <component name="ChangeListManager">
     <list default="true" id="fe6dc3f6-0386-4313-abbd-9027cbbac264" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/js/ajax_director_pupulate_table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/modify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/populateagentTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/sort.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Customer/customer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Customer/customer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Order/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Order/order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/error.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/error.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/insModOrder.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/insModOrder.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/insert.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/insert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/listOrders.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/listOrders.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/insertOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/insertOrder.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/modifyOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modifyOrder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ordersAgent.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ordersAgent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ordersCustomer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ordersCustomer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ordersManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ordersManager.html" afterDir="false" />
     </list>
     <list id="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" name="Changes by Lorenzo" comment="">
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modifyOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modifyOrder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +43,28 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/templates/login.html">
+      <ranges>
+        <range start1="4" end1="5" start2="4" end2="5" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
+        <range start1="9" end1="23" start2="9" end2="13" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
+        <range start1="24" end1="25" start2="14" end2="15" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
+        <range start1="26" end1="30" start2="16" end2="21" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
+        <range start1="34" end1="41" start2="25" end2="37" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
+        <range start1="42" end1="45" start2="38" end2="39" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/app.py">
+      <ranges>
+        <range start1="135" end1="135" start2="135" end2="136" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
+        <range start1="158" end1="158" start2="159" end2="160" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
+        <range start1="185" end1="186" start2="187" end2="189" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
+        <range start1="205" end1="205" start2="208" end2="209" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
+        <range start1="227" end1="227" start2="231" end2="232" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
+        <range start1="268" end1="269" start2="273" end2="273" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProjectId" id="1xRhn0KXMtzVZCryQnNf0JAmOuH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -36,9 +75,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\UTENTE\Desktop\webAppFlask\static\js" />
+      <recent name="C:\Users\UTENTE\Desktop\webAppFlask\static\css" />
       <recent name="C:\Users\UTENTE\Desktop\webAppFlask\static" />
       <recent name="C:\Users\UTENTE\Desktop\webAppFlask\src\ManageDatabases\ApplicationDatabase\Order" />
       <recent name="C:\Users\UTENTE\Desktop\webAppFlask\src\ManageDatabases\AuthDatabase" />
@@ -76,7 +118,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630323971497</updated>
-      <workItem from="1630323972758" duration="35331000" />
+      <workItem from="1630323972758" duration="36142000" />
+      <workItem from="1630474683310" duration="11164000" />
     </task>
     <task id="LOCAL-00001" summary="Modifiche varie">
       <created>1630430467930</created>
@@ -85,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630430467930</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Login modificato">
+      <created>1630435982911</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1630435982911</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,9 +143,22 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Modifiche varie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modifiche varie" />
+    <MESSAGE value="Login modificato" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login modificato" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/static/js/modify.js</url>
+          <line>72</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/webAppFlask$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1630433081301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/webAppFlask$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1630493402063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

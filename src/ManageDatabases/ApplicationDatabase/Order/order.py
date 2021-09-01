@@ -36,12 +36,14 @@ def insert_order(ord_num, import_order, order_amount, date_order, cust_id, agent
         connection = connectDatabase(Application_HOST, Application_DATABASE, Application_USERNAME, Application_PASSWORD)
         with connection.cursor() as ord:
             ord.execute("SELECT * FROM ORDERS WHERE ord_num = %s", (str(ord_num),))
-            success = False
+
             if ord.rowcount == 0:
                 ord.execute("INSERT INTO ORDERS VALUES(%s,%s,%s,%s,%s,%s,%s)",
                             (ord_num, import_order, order_amount, date_order, cust_id, agent_code, description))
                 connection.commit()
                 success = True
+            else:
+                success = False
             closeCursor(ord)
         closeConnection(connection)
         payload.append({'success': success})

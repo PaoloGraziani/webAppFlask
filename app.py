@@ -183,7 +183,8 @@ def insert():
         if float(ord_amount) < float(advance_amount):
             return render_template('insertOrder.html',error ='yes',username = username,infoCustomer=infoCustomer)
         success= insert_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description)
-        if success['success'] == False:
+        print(success)
+        if success[0]['success'] == False:
             return render_template('insertOrder.html', username=username,error='yes',infoCustomer=infoCustomer)
         else:
             return render_template('ordersAgent.html',username = username)

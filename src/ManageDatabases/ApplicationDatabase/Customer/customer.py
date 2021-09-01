@@ -1,4 +1,4 @@
-import  src.ManageDatabases.ApplicationDatabase.Agents.agents
+import src.ManageDatabases.ApplicationDatabase.Agents.agents
 from src.ManageDatabases.SettingDatabase import connectDatabase, Application_HOST, Application_DATABASE, \
     Application_USERNAME, Application_PASSWORD, closeCursor, closeConnection
 
@@ -31,8 +31,8 @@ def select_orders_custumer(custId):
         sel_orders = cust_ord.fetchall()
 
         for result in sel_orders:
-
-            agent_info = src.agentOrderByID(result[5], connessione)
+            from src.ManageDatabases.ApplicationDatabase.Agents.agents import agentOrderByID
+            agent_info =agentOrderByID(result[5], connessione)
 
             for res in agent_info:
                 info = {'agent_code': res[0], 'agent_name': res[1], "working_area": res[2],
