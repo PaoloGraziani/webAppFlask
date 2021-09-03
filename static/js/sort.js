@@ -4,6 +4,7 @@ $(document).ready(function() {
      */
     $(".ordina").click(function(event) {
         sort = $(this).attr('sort');
+
         console.log(sort) // stampa il nome della cella se è crescente, stampa -[nome della cella se è decrescente]
         $("#datiTab").empty(); //svuoto la tabella prima di riempirla di nuovo
         $.ajax({
@@ -27,8 +28,12 @@ $(document).ready(function() {
                         + value.Cust_id.payment_amt + '<br>out standing: ' + value.Cust_id.outstanding_amt + '<br>telephone number: ' + value.Cust_id.phone_no +
                         '</div></details></td>';
                     event_data += '<td>' + value.Description + '</td>';
-                    event_data += '<td><a class="modLink" href="/changeOrder?ordNum=' + value.num_ord + '"> Modifica </a></td>'
-                    event_data += '<td><a class="modLink" href="/deleteOrder?ordNum='+value.num_ord+'"> Elimina </a></td>'
+                    if (role == 'DIRETTORE'|| role =='AGENTE') {
+                        event_data += '<td><a class="modLink" href="/changeOrder?ordNum=' + value.num_ord + '"> Modifica </a></td>'
+                    }
+                    if(role=='AGENTE') {
+                        event_data += '<td><a class="modLink" href="/deleteOrder?ordNum=' + value.num_ord + '"> Elimina </a></td>'
+                    }
                     event_data += '</tr>';
                 });
                 $("#datiTab").append(event_data);

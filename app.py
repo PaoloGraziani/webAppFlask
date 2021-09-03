@@ -148,11 +148,11 @@ def submit():
         session['role'] = role
 
         if role == "DIRETTORE":
-            return render_template('ordersManager.html')
+            return render_template('ordersManager.html',role=session['role'])
         if role == "AGENTE":
-            return render_template('ordersAgent.html', username=username)
+            return render_template('ordersAgent.html', username=username,role=role)
         if role == "CLIENTE":
-            return render_template('ordersCustomer.html', username=username)
+            return render_template('ordersCustomer.html', username=username,role=role)
     else:
         error = 'Yes'
         return render_template("login.html", error=error)
@@ -222,10 +222,10 @@ def update():
     if session['role'] == 'DIRETTORE':
         update_order(ord_num, ord_amount, advance_amount, ord_date,cust_code, agent_code, ord_description)
 
-        return render_template('ordersManager.html', username=username)
+        return render_template('ordersManager.html', username=username,role=session['role'])
     elif session['role']=='AGENTE':
         update_order(ord_num, ord_amount, advance_amount, ord_date,cust_code, agent_code, ord_description)
-        return render_template('ordersAgent.html', username=username)
+        return render_template('ordersAgent.html', username=username,role=session['role'])
 
 '''
 ELIMINAZIONE DI UN ORDINE
@@ -259,9 +259,9 @@ def back() :
     username = session['username']
     print(role)
     if role == 'AGENTE':
-        return render_template('ordersAgent.html',username=username)
+        return render_template('ordersAgent.html',username=username,role=role)
     if role == 'DIRETTORE':
-        return render_template('ordersManager.html', username=username)
+        return render_template('ordersManager.html', username=username,role=role)
 
 
 if __name__ == '__main__':
