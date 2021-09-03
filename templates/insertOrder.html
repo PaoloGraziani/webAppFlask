@@ -9,30 +9,29 @@
     </head>
 
     <body id="corpo">
-        <h1>Inserisci i dati del nuovo ordine</h1>
+        <div id="pagina">
+            <h1>Inserisci i dati del nuovo ordine</h1>
 
-        <div id="dati">
-            <form action="insert" onsubmit="return beforeSubmit()" method="post">
-                <div class="cornice1" id="ord"></div>
-                <br>
-                <div class="cornice2" id="prezzi"></div>
-                <br>
-                <div class="cornice1" id="data"></div>
-                <br>
-                <div class="cornice2" id="codiceCA"></div>
-                <br>
-                <div class="cornice3" id="descrizione"></div>
-                <br><br>
-                <input id="bt1" type="submit" value="Inserisci"/>
-            </form>
+            <div id="dati">
+                <form action="insert" onsubmit="return beforeSubmit()" method="post">
+                    <div class="cornice1" id="ord"></div>
+                    <br>
+                    <div class="cornice2" id="prezzi"></div>
+                    <br>
+                    <div class="cornice1" id="data"></div>
+                    <br>
+                    <div class="cornice2" id="codiceCA"></div>
+                    <br>
+                    <div class="cornice3" id="descrizione"></div>
+                    <input id="bt1" type="submit" value="Inserisci"/>
+                </form>
 
-            <form action="back" method="post">
-                <input id="bt2" type="submit"  value="Indietro"/>
-            </form>
+                <form action="back" method="post">
+                    <input id="bt2" type="submit"  value="Indietro"/>
+                </form>
+            </div>
+
+            <p id="errore"></p>
         </div>
-
-        <p id="errore"></p>
     </body>
-
 </html>
-
