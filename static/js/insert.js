@@ -4,8 +4,9 @@ beforeSubmit = function(){
     console.log(acconto)
     console.log(parseFloat(acconto)>parseFloat(prezzo));
     if(parseFloat(acconto) > parseFloat(prezzo) || parseFloat(prezzo)==0.00) {
-        if( parseFloat(prezzo == 0.00)){
+        if((prezzo == '0.00')){
             document.getElementById('errore').innerHTML = "Il prezzo deve essere maggiore di 0.00 €";
+            return false;
         }
         if(parseFloat(acconto) > parseFloat(prezzo)){
         console.log('sono qui!');
@@ -13,7 +14,8 @@ beforeSubmit = function(){
         }
         return false;
     }
-    $("#insert").submit();
+
+
 }
 
 document.addEventListener('DOMContentLoaded', function (data) {

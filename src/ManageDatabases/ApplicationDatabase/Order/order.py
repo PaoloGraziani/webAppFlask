@@ -30,8 +30,8 @@ def insert_order(ord_num, import_order, order_amount, date_order, cust_id, agent
     payload = []
     success = False
     if import_order < order_amount:
-        context = {'success':False}
-        payload.append(context)
+        success = False
+
     else:
         connection = connectDatabase(Application_HOST, Application_DATABASE, Application_USERNAME, Application_PASSWORD)
         with connection.cursor() as ord:
@@ -43,11 +43,12 @@ def insert_order(ord_num, import_order, order_amount, date_order, cust_id, agent
                 connection.commit()
                 success = True
             else:
-                success = False
+                success = "0"
             closeCursor(ord)
         closeConnection(connection)
-        payload.append({'success': success})
-        return payload
+
+    payload.append({'success': success})
+    return payload
 
 
 def delete_order(ord_num):

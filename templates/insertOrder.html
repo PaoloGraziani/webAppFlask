@@ -3,8 +3,8 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="static/css/insModOrder.css">
-        <script src = "static/js/insert.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src = "static/js/insert.js"></script>
         <script>src = {}</script>
         <title>Nuovo Ordine</title>
     </head>
@@ -14,7 +14,7 @@
         <h1 class="titolo">Inserisci i dati del nuovo ordine</h1>
 
         <div class="dati">
-            <form id="insert" action="insert" method="post">
+            <form id="insert" action="insert" onsubmit="return beforeSubmit()" method="post">
                 <div class="cornice1" id="ord_num"></div>
                 <br>
                 <div class="cornice2" id="prezzi"></div>
@@ -25,7 +25,7 @@
                 <br>
                 <div class="cornice3" id="descrizione"></div>
                 <br><br>
-                <input class="bt1" type="button" onclick="beforeSubmit()" value="Inserisci"/>
+                <input class="bt1" type="submit"  value="Inserisci"/>
             </form>
             <form action="back" method="post">>
                 <input class="bt2" type="submit"  value="Indietro"/>
@@ -34,6 +34,10 @@
         </div>
             <p id="errore"></p>
     </body>
-
+<script>
+    {% if error=="Ordine già Inserito" %}
+        Document.getElementById("errore").innerHTML = "Ordine già Inserito"
+    {% endif %}
+</script>
 </html>
 
