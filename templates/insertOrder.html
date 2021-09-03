@@ -5,7 +5,6 @@
         <link rel="stylesheet" type="text/css" href="static/css/insModOrder.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src = "static/js/insert.js"></script>
-        <script>src = {}</script>
         <title>Nuovo Ordine</title>
     </head>
 
@@ -14,7 +13,7 @@
 
         <div id="dati">
             <form action="insert" onsubmit="return beforeSubmit()" method="post">
-                <div class="cornice1" id="ord_num"></div>
+                <div class="cornice1" id="ord"></div>
                 <br>
                 <div class="cornice2" id="prezzi"></div>
                 <br>
@@ -24,7 +23,7 @@
                 <br>
                 <div class="cornice3" id="descrizione"></div>
                 <br><br>
-                <input id="bt1" type="button" value="Inserisci"/>
+                <input id="bt1" type="submit" value="Inserisci"/>
             </form>
 
             <form action="back" method="post">
@@ -35,10 +34,5 @@
         <p id="errore"></p>
     </body>
 
-    <script>
-        {% if error=="Ordine già Inserito" %}
-            Document.getElementById("errore").innerHTML = "Ordine già Inserito"
-        {% endif %}
-    </script>
 </html>
 

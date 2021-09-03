@@ -1,17 +1,30 @@
-beforeSubmit = function(){
+beforeSubmit = function() {
+
+    var errorePrezzo = "";
+    var ord_num = document.getElementById('ord_num').value;
+
     var acconto = document.getElementById('advance_amount').value;
     var prezzo = document.getElementById('ord_amount').value;
 
-    console.log(acconto);
-    console.log(prezzo);
-    console.log(parseFloat(acconto))
-    if(parseFloat(acconto) > parseFloat(prezzo)) {
-        console.log('sono qui!');
-        document.getElementById('errore').innerHTML = "Prezzo minore di acconto!";
-        return false;//your before submit logic
+
+    if (parseFloat(acconto) > parseFloat(prezzo) || parseFloat(prezzo) == 0.00) {
+        console.log("sono mago merlino!")
+        if ((prezzo == '0.00')) {
+            errorePrezzo += "Il prezzo deve essere maggiore di 0.00€ \n";
+        }
+
+        if (parseFloat(acconto) > parseFloat(prezzo)) {
+            if (errorePrezzo == "")
+                errorePrezzo += "Errore nell'inserimento: Importo < acconto";
+            else
+                errorePrezzo += "e Importo < acconto";
+        }
+        document.getElementById("errore").innerHTML = errorePrezzo;
+        return false;
     }
-    $("#update").submit();
+
 }
+
 
 $(document).ready(function () {
     $.ajax({

@@ -16,36 +16,34 @@ def select_orderByID(ord_num, role,username):
         custumers = customer_list(role,connection)
         for result in sel_orders:
 
-            content = {'username':username,'role': role, 'num_ord': float(result[0]), 'importOrder': "{:.2f}".format(float(result[1])),
+            content = {'success':'True','username':username,'role': role, 'num_ord': float(result[0]), 'importOrder': "{:.2f}".format(float(result[1])),
                        'advance_ord': "{:.2f}".format(float(result[2])), 'ordDate': result[3].strftime("%Y-%m-%d"),
                        'Cust_id': result[4], 'Agent_code': result[5], 'Description': result[6],'agents':list_agent,'customers':custumers}
 
             payload.append(content)
         closeCursor(ord_id)
     closeConnection(connection)
+    if payload == [] :
+        payload = [{'success':'False'}]
     return payload
 
 
 def insert_order(ord_num, import_order, order_amount, date_order, cust_id, agent_code, description):
     payload = []
-    success = False
-    if import_order < order_amount:
-        success = False
 
-    else:
-        connection = connectDatabase(Application_HOST, Application_DATABASE, Application_USERNAME, Application_PASSWORD)
-        with connection.cursor() as ord:
-            ord.execute("SELECT * FROM ORDERS WHERE ord_num = %s", (str(ord_num),))
+    connection = connectDatabase(Application_HOST, Application_DATABASE, Application_USERNAME, Application_PASSWORD)
+    with connection.cursor() as ord:
+        ord.execute("SELECT * FROM ORDERS WHERE ord_num = %s", (str(ord_num),))
 
-            if ord.rowcount == 0:
-                ord.execute("INSERT INTO ORDERS VALUES(%s,%s,%s,%s,%s,%s,%s)",
-                            (ord_num, import_order, order_amount, date_order, cust_id, agent_code, description))
-                connection.commit()
-                success = True
-            else:
-                success = "0"
-            closeCursor(ord)
-        closeConnection(connection)
+        if ord.rowcount == 0:
+            ord.execute("INSERT INTO ORDERS VALUES(%s,%s,%s,%s,%s,%s,%s)",
+                        (ord_num, import_order, order_amount, date_order, cust_id, agent_code, description))
+            connection.commit()
+            success = True
+        else:
+            success = "0"
+        closeCursor(ord)
+    closeConnection(connection)
 
     payload.append({'success': success})
     return payload

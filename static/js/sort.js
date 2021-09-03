@@ -2,7 +2,7 @@ $(document).ready(function() {
     /*
      * Ordinamento colonne
      */
-    $(".ordina1").click(function(event) {
+    $(".ordina").click(function(event) {
         sort = $(this).attr('sort');
         console.log(sort) // stampa il nome della cella se è crescente, stampa -[nome della cella se è decrescente]
         $("#datiTab").empty(); //svuoto la tabella prima di riempirla di nuovo

@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe6dc3f6-0386-4313-abbd-9027cbbac264" name="Default Changelist" comment="Inizio separazione funzioni&#10;Modifica struttura directory" />
-    <list id="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" name="Changes by Lorenzo" comment="" />
+    <list default="true" id="fe6dc3f6-0386-4313-abbd-9027cbbac264" name="Default Changelist" comment="Inizio separazione funzioni&#10;Modifica struttura directory">
+      <change beforePath="$PROJECT_DIR$/.idea/webAppFlask.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webAppFlask.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Order/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Order/order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/insert.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/insert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modify.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/sort.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/sort.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/insertOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/insertOrder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/modifyOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modifyOrder.html" afterDir="false" />
+    </list>
+    <list id="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" name="Changes by Lorenzo" comment="">
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/insertOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/insertOrder.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +33,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/templates/insertOrder.html">
+      <ranges>
+        <range start1="7" end1="8" start2="7" end2="7" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
+        <range start1="16" end1="17" start2="15" end2="16" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
+        <range start1="26" end1="27" start2="25" end2="26" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
+        <range start1="37" end1="42" start2="36" end2="36" changelist="fe6dc3f6-0386-4313-abbd-9027cbbac264" />
+        <range start1="43" end1="45" start2="37" end2="42" changelist="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProjectId" id="1xRhn0KXMtzVZCryQnNf0JAmOuH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,7 +56,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../monitoraggio_lezioni" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -54,7 +78,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="D:\Programmi\Python\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\UTENTE\AppData\Local\Programs\Python\Python37-32\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -82,6 +106,7 @@
       <workItem from="1630474683310" duration="30519000" />
       <workItem from="1630647572613" duration="331000" />
       <workItem from="1630653871418" duration="2074000" />
+      <workItem from="1630657927845" duration="9580000" />
     </task>
     <task id="LOCAL-00001" summary="Modifiche varie">
       <created>1630430467930</created>
@@ -117,6 +142,18 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Modifiche varie" />
     <MESSAGE value="Login modificato" />
@@ -128,6 +165,6 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/webAppFlask$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1630655761963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/webAppFlask$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1630666940238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

@@ -1,20 +1,32 @@
-beforeSubmit = function(){
+
+beforeSubmit = function() {
+
+    var errorePrezzo = "";
+    var ord_num = document.getElementById('ord_num').value;
+
     var acconto = document.getElementById('advance_amount').value;
     var prezzo = document.getElementById('ord_amount').value;
-    console.log(acconto)
-    console.log(parseFloat(acconto)>parseFloat(prezzo));
-    if(parseFloat(acconto) > parseFloat(prezzo) || parseFloat(prezzo)==0.00) {
-        if((prezzo == '0.00')){
-            document.getElementById('errore').innerHTML = "Il prezzo deve essere maggiore di 0.00 €";
-            return false;
+
+
+    if (parseFloat(acconto) > parseFloat(prezzo) || parseFloat(prezzo) == 0.00) {
+        console.log("sono mago merlino!")
+        if ((prezzo == '0.00')) {
+            errorePrezzo += "Il prezzo deve essere maggiore di 0.00€ \n";
         }
-        if(parseFloat(acconto) > parseFloat(prezzo)){
-        console.log('sono qui!');
-        document.getElementById('errore').innerHTML = "Errore nell'inserimento: Importo < acconto o Ordine già presente";
+
+        if (parseFloat(acconto) > parseFloat(prezzo)) {
+            if (errorePrezzo == "")
+                errorePrezzo += "Errore nell'inserimento: Importo < acconto";
+            else
+                errorePrezzo += "e Importo < acconto";
         }
+        document.getElementById("errore").innerHTML = errorePrezzo;
         return false;
     }
+
 }
+
+
 
 document.addEventListener('DOMContentLoaded', function (data) {
     $("#campoCliente").empty();
@@ -25,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function (data) {
     var event_data4 = '';
 
     event_data += '<p>N° ordine</p>';
-    event_data += '<input class="campo" name="ord_num" type="text" placeholder="000000" pattern="[0-9]{6}" required />';
+    event_data += '<input class="campo" id= "ord_num" name="ord_num" type="text" placeholder="000000" pattern="[0-9]{6}" required />';
 
     event_data1 += '<p>Prezzo&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Anticipo</p>';
     event_data1 += '<input class="campo" id="ord_amount" name="ord_amount" type="text" placeholder="0.00" maxlength="15" pattern="[0-9]+\.[0-9]{2}" required/>';
@@ -37,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function (data) {
     event_data4 += '<p>Descrizione ordine</p>';
     event_data4 += '<textarea class="campoDescrizione" name="ord_description" maxlength="60" placeholder="Descrizione ordine..." required></textarea>';
 
-    $("#ord_num").append(event_data);
+    $("#ord").append(event_data);
     $("#prezzi").append(event_data1);
     $("#data").append(event_data2);
     $("#descrizione").append(event_data4);
@@ -65,5 +77,9 @@ document.addEventListener('DOMContentLoaded', function (data) {
             $("#codiceCA").append(event_data3);
         }
     })
+
+    if(errore == "Ordine già presente!") {
+        document.getElementById("errore").innerHTML = errore;
+    }
 }, false);
 
