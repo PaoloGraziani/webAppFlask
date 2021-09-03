@@ -7,38 +7,33 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	</head>
 
-	<body id="corpo">
-		{%if error == 'Yes'%}
-			<p id="errore">Credenziali errate!</p>
-		{%endif%}
-		<div id="sfondoCred">
-			<h1 id="titolo">Login</h1>
+    <body id="corpo">
+        {%if error == 'Yes'%}
+            <p id="errore">Credenziali errate!</p>
+        {%endif%}
 
-			<form action="login" method="post">
-				<div class="campo"id="username"></div>
-				<div class="campo" id="password"></div>
+        <div id="sfondoCred"></div>
 
+        <div id="marchio"></div>
+    </body>
+</html>
 
-			</form>
-		</div>
-
-		<div id="marchio">
-
-		</div>
-
-	</body>
-    <script>
+<script>
     var event_data = '';
     var event_data1 = '';
     var event_data2 = '';
     document.addEventListener('DOMContentLoaded', function (data) {
-        event_data += '  <input id="username"class="campo" name="username" type="text" maxlength="6" pattern="[ACD0-9]{4,}" placeholder="Username" required/>';
-        event_data1 += '<input class="campo" name="password" type="password" maxlength="16" placeholder="Password" required/><br><br><br>';
-        event_data1 += '<input id="bottone" type="submit" value="Accedi"/>';
-        event_data2 += '<div id="marchio"> <hr/> <p>Paolo Graziani - Lorenzo Genghini © 2021</p> </div>';
-        $("#username").append(event_data);
-        $("#password").append(event_data1);
-        $("#marchio").append(event_data2)
+        event_data += '<h1 id="titolo">Login</h1>';
+        event_data += '<form action="login" method="post">' +
+            '<input class="campo" name="username" type="text" maxlength="6" pattern="[ACD0-9]{4,}" placeholder="Username" required/>' +
+            '<input class="campo" name="password" type="password" maxlength="16" placeholder="Password" required/>' +
+            '<input type="hidden" name="ruolo" />' +
+            '<br/><br/><br/>' +
+            '<input id="bottone" type="submit" value="Accedi"/>' +
+            '</form>';
+        event_data1 += '<hr/>';
+        event_data1 += '<p>Paolo Graziani - Lorenzo Genghini © 2021</p>';
+        $("#sfondoCred").append(event_data);
+        $("#marchio").append(event_data1);
     },false);
-    </script>
-
+</script>

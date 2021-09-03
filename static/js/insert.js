@@ -14,8 +14,6 @@ beforeSubmit = function(){
         }
         return false;
     }
-
-
 }
 
 document.addEventListener('DOMContentLoaded', function (data) {
@@ -35,8 +33,6 @@ document.addEventListener('DOMContentLoaded', function (data) {
 
     event_data2 += '<p>Data ordine</p>';
     event_data2 += '<input class="campo" name="ord_date" type="date" min="2000-01-02" max="2100-12-31" required/>';
-
-
 
     event_data4 += '<p>Descrizione ordine</p>';
     event_data4 += '<textarea class="campoDescrizione" name="ord_description" maxlength="60" placeholder="Descrizione ordine..." required></textarea>';

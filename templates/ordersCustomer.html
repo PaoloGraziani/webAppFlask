@@ -12,98 +12,76 @@
         <script src = "static/js/populatecustomersTable.js"></script>
     </head>
 
-    <body class="corpo">
-        <h1 aria-describedby="description">Ordini</h1>
+    <body id="corpo">
+        <div id="pagina">
+            <h1 aria-describedby="description">Ordini</h1>
 
-        <!-- Titolo tabella -->
-        <div id="movimento">
-            <table id="titoloTab">
-                <thead>
-                <tr>
-                    <th aria-describedby="col1" class="thCliente">
-                        <div class="testoTitTabCliente">
-                            Numero ordine
-                        </div>
-                        <div class="pozioneBt">
-                            <button class="ordina1" sort="ord_num">+</button>
-                            <br>
-                            <button class="ordina1" sort="-ord_num">&thinsp;-&thinsp;</button>
-                        </div>
-                    </th>
-                    <th aria-describedby="col2" class="thCliente">
-                        <div class="testoTitTabCliente">
-                            Importo ordine
-                        </div>
-                        <div class="pozioneBt">
-                            <button class="ordina1" sort="ord_amount">+</button>
-                            <br>
-                            <button class="ordina1" sort="-ord_amount">&thinsp;-&thinsp;</button>
-                        </div>
-                    </th>
-                    <th aria-describedby="col3" class="thCliente">
-                        <div class="testoTitTabCliente">
-                            Acconto dell'ordine
-                        </div>
-                        <div class="pozioneBt">
-                            <button class="ordina1" sort="advance_amount">+</button>
-                            <br>
-                            <button class="ordina1" sort="-advance_amount">&thinsp;-&thinsp;</button>
-                        </div>
-                    </th>
-                    <th aria-describedby="col4" class="thCliente">
-                        <div class="testoTitTabCliente">
-                            Data dell'ordine
-                        </div>
-                        <div class="pozioneBt">
-                            <button class="ordina1" sort="ord_date">+</button>
-                            <br>
-                            <button class="ordina1" sort="-ord_date">&thinsp;-&thinsp;</button>
-                        </div>
-                    </th>
-                    <th aria-describedby="col5" class="thCliente">
-                        <div class="testoTitTabCliente">
-                            Agente associato
-                        </div>
-                        <div class="pozioneBt">
-                            <button class="ordina1" sort="agent_code">+</button>
-                            <br>
-                            <button class="ordina1" sort="-agent_code">&thinsp;-&thinsp;</button>
-                        </div>
-                    </th>
-                    <th aria-describedby="col6" class="thCliente">
-                        <div class="testoTitTabCliente">
-                            Descrizione dell'ordine
-                        </div>
-                        <div class="pozioneBt">
-                            <button class="ordina1" sort="ord_description">+</button>
-                            <br>
-                            <button class="ordina1" sort="-ord_description">&thinsp;-&thinsp;</button>
-                        </div>
-                    </th>
-                </tr>
-                </thead>
-            </table>
+            <!-- Titolo tabella -->
+            <div id="movTitoloTb">
+                <table>
+                    <thead>
+                        <tr>
+                            <th aria-describedby="col1">
+                                Numero ordine
+                                <br>
+                                <button class="ordina" sort="ord_num">+</button>
+                                <button class="ordina" sort="-ord_num">&thinsp;-&thinsp;</button>
+                            </th>
+                            <th aria-describedby="col2">
+                                Importo ordine
+                                <br>
+                                <button class="ordina" sort="ord_amount">+</button>
+                                <button class="ordina" sort="-ord_amount">&thinsp;-&thinsp;</button>
+                            </th>
+                            <th aria-describedby="col3">
+                                Acconto dell'ordine
+                                <br>
+                                <button class="ordina" sort="advance_amount">+</button>
+                                <button class="ordina" sort="-advance_amount">&thinsp;-&thinsp;</button>
+                            </th>
+                            <th aria-describedby="col4">
+                                Data dell'ordine
+                                <br>
+                                <button class="ordina" sort="ord_date">+</button>
+                                <button class="ordina" sort="-ord_date">&thinsp;-&thinsp;</button>
+                            </th>
+                            <th aria-describedby="col5">
+                                Agente associato
+                                <br>
+                                <button class="ordina" sort="agent_code">+</button>
+                                <button class="ordina" sort="-agent_code">&thinsp;-&thinsp;</button>
+                            </th>
+                            <th aria-describedby="col6">
+                                Descrizione dell'ordine
+                                <br>
+                                <button class="ordina" sort="ord_description">+</button>
+                                <button class="ordina" sort="-ord_description">&thinsp;-&thinsp;</button>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- Dati tabella -->
+            <table id="datiTab"></table>
+
+            <!-- Bottone Logout -->
+            <form action="logout">
+                <br>
+                <input id="modLogout" type="submit" value="Esci"/>
+            </form>
+
+            <!-- Accessibilita' -->
+            <p id="descTab">La tabella raffigurata riassume gli ordini da te effettuati.</p>
+            <p class="col" id="col1">colonna 1</p>
+            <p class="col" id="col2">colonna 2</p>
+            <p class="col" id="col3">colonna 3</p>
+            <p class="col" id="col4">colonna 4</p>
+            <p class="col" id="col5">colonna 5</p>
+            <p class="col" id="col6">colonna 6</p>
         </div>
-        <!-- Dati tabella -->
-        <table id="datiTab"></table>
-
-        <!-- Bottone Logout -->
-        <form action="logout">
-            <br>
-            <input id="modLogout" type="submit" value="Esci"/>
-        </form>
-
-        <!-- Accessibilita' -->
-        <p id="description">La tabella raffigurata riassume gli ordini da te effettuati.</p>
-        <p class="col" id="col1">colonna 1</p>
-        <p class="col" id="col2">colonna 2</p>
-        <p class="col" id="col3">colonna 3</p>
-        <p class="col" id="col4">colonna 4</p>
-        <p class="col" id="col5">colonna 5</p>
-        <p class="col" id="col6">colonna 6</p>
     </body>
-<script>
-    var username = '{{ username }}';
-</script>
-</html>
 
+    <script>
+        var username = '{{ username }}';
+    </script>
+</html>

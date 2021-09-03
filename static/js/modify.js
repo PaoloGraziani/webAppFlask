@@ -1,16 +1,16 @@
 beforeSubmit = function(){
     var acconto = document.getElementById('advance_amount').value;
-var prezzo = document.getElementById('ord_amount').value;
+    var prezzo = document.getElementById('ord_amount').value;
 
-console.log(acconto);
-console.log(prezzo);
-console.log(parseFloat(acconto))
-if(parseFloat(acconto) > parseFloat(prezzo)) {
-    console.log('sono qui!');
-document.getElementById('errore').innerHTML = "Prezzo minore di acconto!";
-return false;//your before submit logic
-}
-$("#update").submit();
+    console.log(acconto);
+    console.log(prezzo);
+    console.log(parseFloat(acconto))
+    if(parseFloat(acconto) > parseFloat(prezzo)) {
+        console.log('sono qui!');
+        document.getElementById('errore').innerHTML = "Prezzo minore di acconto!";
+        return false;//your before submit logic
+    }
+    $("#update").submit();
 }
 
 $(document).ready(function () {
@@ -60,16 +60,12 @@ $(document).ready(function () {
                 }
                 event_data4 += '<p>Descrizione ordine</p>';
                 event_data4 += '<textarea id="textarea" class="campoDescrizione" name="ord_description" maxlength="60" placeholder="Descrizione ordine..." required>' + value.Description + '</textarea>';
-
             });
-
             $("#ord_num").append(event_data);
             $("#prezzi").append(event_data1);
             $("#data").append(event_data2);
             $("#codiceCA").append(event_data3);
             $("#descrizione").append(event_data4);
-
-
         }
     })
 })

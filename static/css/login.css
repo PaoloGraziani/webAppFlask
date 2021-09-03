@@ -8,6 +8,12 @@
 	color: #F8F8FF;
 	font-family: Arial;
 	font-size: 3em;
+
+	position: absolute;
+	left: 0;
+	top: -1em;
+
+	width:100%;
 }
 
 #sfondoCred{
@@ -17,7 +23,7 @@
 	top: 50%;
 	left: 50%;
 	margin-top: -13em;
-	margin-left: -10.5em;
+	margin-left: -11em;
 	height: 20em;
 	width: 20em;
 
@@ -68,6 +74,9 @@
 #marchio{
 	font-family: arial;
 
-	margin-top: 42em;
-	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+
+	width:100%;
 }

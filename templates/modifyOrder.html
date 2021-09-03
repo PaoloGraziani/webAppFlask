@@ -8,10 +8,10 @@
     </head>
 
     <body id="corpo">
-        <h1 class="titolo">Modifica i dati dell'ordine</h1>
+        <h1>Modifica i dati dell'ordine</h1>
 
-        <div class="dati">
-            <form id="update" action="update" method="post">
+        <div id="dati">
+            <form action="update" onsubmit="return beforeSubmit()" method="post">
                 <div class="cornice1" id="ord_num"></div>
                 <br>
                 <div class="cornice2" id="prezzi"></div>
@@ -22,16 +22,18 @@
                 <br>
                 <div class="cornice3" id="descrizione"></div>
                 <br><br>
-                <input id="modifica" class="bt1" type="button" onclick="beforeSubmit();" value="Modifica"/>
+                <input id="bt1" type="button" onclick="beforeSubmit()" value="Modifica"/>
             </form>
+
             <form action="back" method="post">
-                <input class="bt2" type="submit" value="Indietro"/>
+                <input id="bt2" type="submit" value="Indietro"/>
             </form>
         </div>
-            <p id="errore"></p>
+
+        <p id="errore"></p>
     </body>
-<script>
-    var ord_num = {{ordNum}};
-</script>
+
+    <script>
+        var ord_num = {{ordNum}};
+    </script>
 </html>
-</script>

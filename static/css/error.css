@@ -3,14 +3,14 @@
     text-align: center;
 }
 
-#titolo{
+h1{
     background-color: red;
     color: #F8F8FF;
     font-family: Arial;
     font-size: 3em;
 }
 
-#testo{
+p{
     color: #008080;
     font-family: Arial;
     font-size: 1.5em;
@@ -35,8 +35,8 @@
 
 /*Quando sei sul bottone*/
 #bt:hover {
-    color: black;
+    color: #F8F8FF;
 
     background-color: #F8F8FF;
-    border: 0.3em solid #F8F8FF;
+    border: 0.3em solid #008080;
 }

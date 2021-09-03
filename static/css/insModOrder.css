@@ -6,23 +6,28 @@
     color: #F8F8FF;
     font-family: Arial;
     font-size: 3em;
+
+    position: absolute;
+    left: 0;
+    bottom: -0.8em;
+
+    width:100%;
 }
-.titolo{
+h1{
     color: #008080;
     font-size: 3em;
     font-family: Arial;
     text-align: center;
 
-    /*Titolo responsive*/
     position: absolute;
-    top: -0.5em;
+    top: -0.4em;
     left: 50%;
     margin-left: -7.8em;
-    height: 1em;
+    /*height: 1em;*/
     width: 15.5em;
 }
 
-.dati{
+#dati{
     text-align: center;
 
     /*Dati responsive*/
@@ -128,15 +133,18 @@ p{
     margin-top: 0em;
     height: 2.4em;
     width: 25em;
+
+    /*textarea non ridimensionabile*/
+    resize: none;
 }
 
 /*Quando non sei sul bottone*/
-.bt1{
+#bt1{
+    color: #F8F8FF;
     font-size: 1em;
     font-family: Arial;
-    color: #F8F8FF;
+    font-weight: bold;
     background-color: #008080;
-
     border: 0.3em solid #008080;
     border-radius: 1em;
 
@@ -146,23 +154,24 @@ p{
 }
 
 /*Quando sei sul bottone*/
-.bt1:hover {
+#bt1:hover {
     color: #008080;
     background-color: #F8F8FF;
-    border: 0.3em solid #F8F8FF;
+    border: 0.3em solid #008080;
 }
 
 /*Quando non sei sul bottone*/
-.bt2{
+#bt2{
+    color: #F8F8FF;
     font-size: 1em;
     font-family: Arial;
-    color: #F8F8FF;
+    font-weight: bold;
     background-color: #008080;
 
     border: 0.3em solid #008080;
     border-radius: 1em;
     float: left;
-    margin-top: 3em;
+    margin-top: 2em;
     margin-left: 1em;
 
     transition-duration: 0.5s;
@@ -171,8 +180,8 @@ p{
 }
 
 /*Quando sei sul bottone*/
-.bt2:hover {
+#bt2:hover {
     color: #008080;
     background-color: #F8F8FF;
-    border: 0.3em solid #F8F8FF;
+    border: 0.3em solid #008080;
 }

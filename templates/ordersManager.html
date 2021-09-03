@@ -11,97 +11,70 @@
         <script src="static/js/populatemanagerTable.js"></script>
     </head>
 
-    <body class="corpo">
-        <h1>Ordini</h1>
+    <body id="corpo">
+        <div id="pagina">
+            <h1>Ordini</h1>
 
-        <!-- Titolo tabella -->
-        <div id="movimento">
-            <table id="titoloTab">
-                <thead>
-                    <tr>
-                        <th>
-                            <div class="testoTitTabDirigente">
+            <!-- Titolo tabella -->
+            <div id="movTitoloTb">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
                                 Numero ordine
-                            </div>
-                            <div class="pozioneBt">
-                                <button class="ordina1" sort="ord_num">+</button>
                                 <br>
-                                <button class="ordina1" sort="-ord_num">&thinsp;-&thinsp;</button>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="testoTitTabDirigente">
+                                <button class="ordina" sort="ord_num">+</button>
+                                <button class="ordina" sort="-ord_num">&thinsp;-&thinsp;</button>
+                            </th>
+                            <th>
                                 Importo ordine
-                            </div>
-                            <div class="pozioneBt">
-                                <button class="ordina1" sort="ord_amount">+</button>
                                 <br>
-                                <button class="ordina1" sort="-ord_amount">&thinsp;-&thinsp;</button>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="testoTitTabDirigente">
+                                <button class="ordina" sort="ord_amount">+</button>
+                                <button class="ordina" sort="-ord_amount">&thinsp;-&thinsp;</button>
+                            </th>
+                            <th>
                                 Acconto dell'ordine
-                            </div>
-                            <div class="pozioneBt">
-                                <button class="ordina1" sort="advance_amount">+</button>
                                 <br>
-                                <button class="ordina1" sort="-advance_amount">&thinsp;-&thinsp;</button>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="testoTitTabDirigente">
+                                <button class="ordina" sort="advance_amount">+</button>
+                                <button class="ordina" sort="-advance_amount">&thinsp;-&thinsp;</button>
+                            </th>
+                            <th>
                                 Data dell'ordine
-                            </div>
-                            <div class="pozioneBt">
-                                <button class="ordina1" sort="ord_date">+</button>
                                 <br>
-                                <button class="ordina1" sort="-ord_date">&thinsp;-&thinsp;</button>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="testoTitTabDirigente">
+                                <button class="ordina" sort="ord_date">+</button>
+                                <button class="ordina" sort="-ord_date">&thinsp;-&thinsp;</button>
+                            </th>
+                            <th>
                                 Utente associato
-                            </div>
-                            <div class="pozioneBt">
-                                <button class="ordina1" sort="cust_code">+</button>
                                 <br>
-                                <button class="ordina1" sort="-cust_code">&thinsp;-&thinsp;</button>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="testoTitTabDirigente">
+                                <button class="ordina" sort="cust_code">+</button>
+                                <button class="ordina" sort="-cust_code">&thinsp;-&thinsp;</button>
+                            </th>
+                            <th>
                                 Agente associato
-                            </div>
-                            <div class="pozioneBt">
-                                <button class="ordina1" sort="agent_code">+</button>
                                 <br>
-                                <button class="ordina1" sort="-agent_code">&thinsp;-&thinsp;</button>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="testoTitTabDirigente">
+                                <button class="ordina" sort="agent_code">+</button>
+                                <button class="ordina" sort="-agent_code">&thinsp;-&thinsp;</button>
+                            </th>
+                            <th>
                                 Descrizione dell'ordine
-                            </div>
-                            <div class="pozioneBt">
-                                <button class="ordina1" sort="ord_description">+</button>
                                 <br>
-                                <button class="ordina1" sort="-ord_description">&thinsp;-&thinsp;</button>
-                            </div>
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-        <!-- Dati tabella -->
-        <table id="datiTab"></table>
+                                <button class="ordina" sort="ord_description">+</button>
+                                <button class="ordina" sort="-ord_description">&thinsp;-&thinsp;</button>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- Dati tabella -->
+            <table id="datiTab"></table>
 
-        <!-- Bottone Logout -->
-        <form action="logout">
-            <br>
-            <input id="modLogout" type="submit" value="Esci"/>
-        </form>
+            <!-- Bottone Logout -->
+            <form action="logout">
+                <br>
+                <input id="modLogout" type="submit" value="Esci"/>
+            </form>
+        </div>
     </body>
 </html>
-

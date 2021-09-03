@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe6dc3f6-0386-4313-abbd-9027cbbac264" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Order/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Order/order.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/insert.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/insert.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/insertOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/insertOrder.html" afterDir="false" />
-    </list>
-    <list id="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" name="Changes by Lorenzo" comment="">
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-    </list>
+    <list default="true" id="fe6dc3f6-0386-4313-abbd-9027cbbac264" name="Default Changelist" comment="Inizio separazione funzioni&#10;Modifica struttura directory" />
+    <list id="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" name="Changes by Lorenzo" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,18 +31,33 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../monitoraggio_lezioni" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lorenzo\Documents\GitHub\webAppFlask\src\TablesDB" />
+      <recent name="C:\Users\Lorenzo\Documents\GitHub\webAppFlask\static\css" />
       <recent name="C:\Users\UTENTE\Desktop\webAppFlask\static\js" />
       <recent name="C:\Users\UTENTE\Desktop\webAppFlask\static\css" />
       <recent name="C:\Users\UTENTE\Desktop\webAppFlask\static" />
-      <recent name="C:\Users\UTENTE\Desktop\webAppFlask\src\ManageDatabases\ApplicationDatabase\Order" />
-      <recent name="C:\Users\UTENTE\Desktop\webAppFlask\src\ManageDatabases\AuthDatabase" />
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="webAppFlask" type="PythonConfigurationType" factoryName="Python">
       <module name="webAppFlask" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -59,7 +65,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="D:\Programmi\Python\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -86,6 +92,7 @@
       <workItem from="1630323972758" duration="36142000" />
       <workItem from="1630474683310" duration="30519000" />
       <workItem from="1630647572613" duration="331000" />
+      <workItem from="1630653871418" duration="2074000" />
     </task>
     <task id="LOCAL-00001" summary="Modifiche varie">
       <created>1630430467930</created>
@@ -127,18 +134,11 @@
     <MESSAGE value="Inizio separazione funzioni&#10;Modifica struttura directory" />
     <option name="LAST_COMMIT_MESSAGE" value="Inizio separazione funzioni&#10;Modifica struttura directory" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/static/js/modify.js</url>
-          <line>72</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/webAppFlask$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1630647612610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/webAppFlask$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1630655761963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

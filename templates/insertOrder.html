@@ -10,11 +10,10 @@
     </head>
 
     <body id="corpo">
+        <h1>Inserisci i dati del nuovo ordine</h1>
 
-        <h1 class="titolo">Inserisci i dati del nuovo ordine</h1>
-
-        <div class="dati">
-            <form id="insert" action="insert" onsubmit="return beforeSubmit()" method="post">
+        <div id="dati">
+            <form action="insert" onsubmit="return beforeSubmit()" method="post">
                 <div class="cornice1" id="ord_num"></div>
                 <br>
                 <div class="cornice2" id="prezzi"></div>
@@ -25,19 +24,21 @@
                 <br>
                 <div class="cornice3" id="descrizione"></div>
                 <br><br>
-                <input class="bt1" type="submit"  value="Inserisci"/>
-            </form>
-            <form action="back" method="post">>
-                <input class="bt2" type="submit"  value="Indietro"/>
+                <input id="bt1" type="button" value="Inserisci"/>
             </form>
 
+            <form action="back" method="post">
+                <input id="bt2" type="submit"  value="Indietro"/>
+            </form>
         </div>
-            <p id="errore"></p>
+
+        <p id="errore"></p>
     </body>
-<script>
-    {% if error=="Ordine già Inserito" %}
-        Document.getElementById("errore").innerHTML = "Ordine già Inserito"
-    {% endif %}
-</script>
+
+    <script>
+        {% if error=="Ordine già Inserito" %}
+            Document.getElementById("errore").innerHTML = "Ordine già Inserito"
+        {% endif %}
+    </script>
 </html>
 
