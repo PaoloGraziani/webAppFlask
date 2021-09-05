@@ -52,7 +52,7 @@ $(document).ready(function () {
                 event_data3 += '<p>Codice cliente&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Codice agente</p>';
                 console.log(value.customers[0].cust_code.length); //25
 
-                event_data3 += '<select class="campoCliente" name="cust_code" required>';
+                event_data3 += '<select class="campoCliente2" name="cust_code" required>';
                 for (i = 0; i < value.customers[0].cust_code.length; i++) {
                     cust_code = value.customers[0].cust_code[i][0];
                     console.log(cust_code);

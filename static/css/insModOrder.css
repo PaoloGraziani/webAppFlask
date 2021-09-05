@@ -75,7 +75,19 @@ p{
     border-radius: 1em;
 }
 
-.campoCliente{
+.campoCliente1{
+    font-size: 1.3em;
+    font-family: Arial;
+    text-align: center;
+    background-color: #F8F8FF;
+
+    border: 0.1em solid #008080;
+    border-radius: 1em;
+    margin-left: 1.7em;
+    float: left;
+}
+
+.campoCliente2{
     font-size: 1.3em;
     font-family: Arial;
     text-align: center;
