@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe6dc3f6-0386-4313-abbd-9027cbbac264" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/sort.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/sort.js" afterDir="false" />
+    <list default="true" id="fe6dc3f6-0386-4313-abbd-9027cbbac264" name="Default Changelist" comment="Modifiche varie">
+      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Agents/agents.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Agents/agents.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Customer/customer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Customer/customer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Manager/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Manager/manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Order/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Order/order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Order/sort.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageDatabases/ApplicationDatabase/Order/sort.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManageDatabases/AuthDatabase/userAdmin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageDatabases/AuthDatabase/userAdmin.py" afterDir="false" />
     </list>
-    <list id="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" name="Changes by Lorenzo" comment="">
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/insertOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/insertOrder.html" afterDir="false" />
-    </list>
+    <list id="ef3bbbff-ee79-47a9-9fa8-e80c6ac01e5d" name="Changes by Lorenzo" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -162,6 +163,6 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/webAppFlask$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1630686498127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/webAppFlask$webAppFlask.coverage" NAME="webAppFlask Coverage Results" MODIFIED="1630936166899" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
