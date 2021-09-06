@@ -8,6 +8,7 @@ from src.ManageDatabases.ApplicationDatabase.Order.order import select_orderByID
     delete_order
 from src.ManageDatabases.ApplicationDatabase.Order.sort import sort_orders
 from src.ManageDatabases.AuthDatabase.userAdmin import username_password_confirm, role_user
+from src.configuration import SECRET, SECRET_TYPE
 
 app = Flask(__name__)
 
@@ -265,6 +266,6 @@ def back() :
 
 
 if __name__ == '__main__':
-    app.secret_key = 'super secret key'  # metti in un file di configurazione
-    app.config['SESSION_TYPE'] = 'filesystem'  # metti su un file di configurazione
+    app.secret_key = SECRET
+    app.config['SESSION_TYPE'] = SECRET_TYPE
     app.run(debug=True)
