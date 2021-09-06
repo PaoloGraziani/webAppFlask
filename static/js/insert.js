@@ -63,13 +63,14 @@ document.addEventListener('DOMContentLoaded', function (data) {
             $.each(data, function (index, value) {
 
                 event_data3 += '<p>Codice cliente&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Codice agente</p>';
-                event_data3 += '<select class="campoCliente" name="cust_code" required>';
+                event_data3 += '<select class="campoCliente1" name="cust_code" required>';
+                event_data3 += '<option value="">--Seleziona cliente--</option>';
                 for(i = 0;i<value.cust_code.length;i++) {
                     cust_code = value.cust_code[i][0];
                     console.log(cust_code);
-                    event_data3+='<option value="'+cust_code+'">'+cust_code+'</option>';
+                    event_data3 += '<option value="'+cust_code+'">'+cust_code+'</option>';
                 }
-                event_data3+='</select>';
+                event_data3+= '</select>';
 
                 event_data3 += '<input class="campoAgente2" name="agent_code" type="text" value="'+value.role+'" readonly/>';
 

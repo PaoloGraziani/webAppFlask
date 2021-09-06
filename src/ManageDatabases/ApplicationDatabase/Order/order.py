@@ -1,4 +1,4 @@
-from src.ManageDatabases.SettingDatabase import connectDatabase, Application_HOST, Application_DATABASE, \
+from src.ManageDatabases.settingDatabase import connectDatabase, Application_HOST, Application_DATABASE, \
     Application_USERNAME, Application_PASSWORD, closeCursor, closeConnection
 from src.ManageDatabases.ApplicationDatabase.Agents.agents import agents
 from src.ManageDatabases.ApplicationDatabase.Customer.customer import customer_list

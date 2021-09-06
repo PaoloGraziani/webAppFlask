@@ -1,7 +1,7 @@
 import psycopg2
 
 from src.ManageDatabases.ApplicationDatabase.Customer.customer import OrderByIDCustomer
-from src.ManageDatabases.SettingDatabase import connectDatabase, Application_HOST, Application_DATABASE, \
+from src.ManageDatabases.settingDatabase import connectDatabase, Application_HOST, Application_DATABASE, \
     Application_USERNAME, Application_PASSWORD, closeCursor, closeConnection
 
 def agents(connection):
