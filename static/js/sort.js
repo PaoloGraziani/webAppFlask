@@ -36,7 +36,6 @@ $(document).ready(function() {
                             value.Agent_code.commission + '<br>telephone number: ' + value.Agent_code.phone_no + '<br>country: ' + value.Agent_code.country +
                             '</div></details></td>';
                     }
-
                     event_data += '<td>' + value.Description + '</td>';
                     if (role == 'DIRETTORE'|| role =='AGENTE') {
                         event_data += '<td><a class="modLink" href="/changeOrder?ordNum=' + value.num_ord + '"> Modifica </a></td>'

@@ -63,6 +63,10 @@
 	background-color: #4CAF50;
 }
 
+#descLog{
+	display: none;
+}
+
 #marchio{
 	font-family: arial;
 

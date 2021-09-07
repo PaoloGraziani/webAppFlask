@@ -186,13 +186,13 @@ def insert():
         username = session['username']
         infoCustomer = customersInformation()
         if float(ord_amount) < float(advance_amount):
-            return render_template('insertOrder.html',error ='yes',username = username,infoCustomer=infoCustomer)
-        success= insert_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description)
+            return render_template('insertOrder.html', error='yes', username=username, infoCustomer=infoCustomer)
+        success = insert_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description)
         print(success)
-        if success[0]['success'] == False:
-            return render_template('insertOrder.html', username=username,error='yes',infoCustomer=infoCustomer)
+        if success[0]['success'] == '0':
+            return render_template('insertOrder.html', username=username, error='Ordine già presente!', infoCustomer=infoCustomer)
         else:
-            return render_template('ordersAgent.html',username = username)
+            return render_template('ordersAgent.html', username=username, role=session['role'])
 
 
 '''
@@ -242,7 +242,7 @@ def delete():
     if session['role'] == 'AGENTE':
         delete_order(id_ord)
         return render_template('ordersAgent.html', orders=select_orders_agent(username),
-                               ruolo=session['role'],username=username)
+                               role=session['role'],username=username)
 
 
 '''
