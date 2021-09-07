@@ -8,7 +8,7 @@ from src.ManageDatabases.ApplicationDatabase.Order.order import select_orderByID
     delete_order
 from src.ManageDatabases.ApplicationDatabase.Order.sort import sort_orders
 from src.ManageDatabases.AuthDatabase.userAdmin import username_password_confirm, role_user
-from src.configuration import SECRET, SECRET_TYPE
+from src.configuration import SECRET, SESSION_TYPE
 
 app = Flask(__name__)
 
@@ -142,9 +142,12 @@ AUTENTICAZIONE
 def submit():
     username = request.form['username']
     password = request.form['password']
-
+    app.secret_key = SECRET()
+    print(app.secret_key)
     if username_password_confirm(username, password):
         role = role_user(username, password)
+        app.secret_key = SECRET()
+        print(app.secret_key)
         session['username'] = username
         session['role'] = role
 
@@ -266,6 +269,6 @@ def back() :
 
 
 if __name__ == '__main__':
-    app.secret_key = SECRET
-    app.config['SESSION_TYPE'] = SECRET_TYPE
+    app.secret_key = SECRET()
+    app.config['SESSION_TYPE'] = SESSION_TYPE
     app.run(debug=True)
