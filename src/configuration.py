@@ -7,6 +7,5 @@ def SECRET():
     secret_key = str(date) +' '+ str(cip)
     h = hashlib.md5(secret_key.encode())
     secret_key = h.hexdigest()
-    SECRET = secret_key
     return secret_key
 SESSION_TYPE = 'filesystem'
