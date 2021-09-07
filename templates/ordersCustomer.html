@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="it">
 <html xmlns:th="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="UTF-8">
@@ -9,53 +9,54 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src = "static/js/sort.js"></script>
-        <script src = "static/js/populatecustomersTable.js"></script>
+        <script src = "static/js/populatecustomerTable.js"></script>
     </head>
 
     <body id="corpo">
         <div id="pagina">
-            <h1 aria-describedby="description">Ordini</h1>
+            <!-- Intestazione 1 con accessibilita' -->
+            <h1 aria-describedby="descTab">Ordini</h1>
 
-            <!-- Titolo tabella -->
+            <!-- Titolo tabella con accessibilita' -->
             <div id="movTitoloTb">
                 <table>
                     <thead>
                         <tr>
-                            <th aria-describedby="col1">
+                            <th aria-label="Colonna 1, numero ordine.">
                                 Numero ordine
                                 <br>
-                                <button class="ordina" sort="ord_num">+</button>
-                                <button class="ordina" sort="-ord_num">&thinsp;-&thinsp;</button>
+                                <button aria-label="Ordina la colonna in maniera crescente." class="ordina" sort="ord_num">+</button>
+                                <button aria-label="Ordina la colonna in maniera decrescente." class="ordina" sort="-ord_num">&thinsp;-&thinsp;</button>
                             </th>
-                            <th aria-describedby="col2">
+                            <th aria-label="colonna 2, importo ordine.">
                                 Importo ordine
                                 <br>
-                                <button class="ordina" sort="ord_amount">+</button>
-                                <button class="ordina" sort="-ord_amount">&thinsp;-&thinsp;</button>
+                                <button aria-label="Ordina la colonna in maniera crescente." class="ordina" sort="ord_amount">+</button>
+                                <button aria-label="Ordina la colonna in maniera decrescente." class="ordina" sort="-ord_amount">&thinsp;-&thinsp;</button>
                             </th>
-                            <th aria-describedby="col3">
+                            <th aria-label="colonna 3, acconto dell'ordine.">
                                 Acconto dell'ordine
                                 <br>
-                                <button class="ordina" sort="advance_amount">+</button>
-                                <button class="ordina" sort="-advance_amount">&thinsp;-&thinsp;</button>
+                                <button aria-label="Ordina la colonna in maniera crescente." class="ordina" sort="advance_amount">+</button>
+                                <button aria-label="Ordina la colonna in maniera decrescente." class="ordina" sort="-advance_amount">&thinsp;-&thinsp;</button>
                             </th>
-                            <th aria-describedby="col4">
+                            <th aria-label="colonna 4, data dell'ordine.">
                                 Data dell'ordine
                                 <br>
-                                <button class="ordina" sort="ord_date">+</button>
-                                <button class="ordina" sort="-ord_date">&thinsp;-&thinsp;</button>
+                                <button aria-label="Ordina la colonna in maniera crescente." class="ordina" sort="ord_date">+</button>
+                                <button aria-label="Ordina la colonna in maniera decrescente." class="ordina" sort="-ord_date">&thinsp;-&thinsp;</button>
                             </th>
-                            <th aria-describedby="col5">
+                            <th aria-label="colonna 5, agente associato.">
                                 Agente associato
                                 <br>
-                                <button class="ordina" sort="agent_code">+</button>
-                                <button class="ordina" sort="-agent_code">&thinsp;-&thinsp;</button>
+                                <button aria-label="Ordina la colonna in maniera crescente." class="ordina" sort="agent_code">+</button>
+                                <button aria-label="Ordina la colonna in maniera decrescente." class="ordina" sort="-agent_code">&thinsp;-&thinsp;</button>
                             </th>
-                            <th aria-describedby="col6">
+                            <th aria-label="colonna 6, descrizione dell'ordine.">
                                 Descrizione dell'ordine
                                 <br>
-                                <button class="ordina" sort="ord_description">+</button>
-                                <button class="ordina" sort="-ord_description">&thinsp;-&thinsp;</button>
+                                <button aria-label="Ordina la colonna in maniera crescente." class="ordina" sort="ord_description">+</button>
+                                <button aria-label="Ordina la colonna in maniera decrescente." class="ordina" sort="-ord_description">&thinsp;-&thinsp;</button>
                             </th>
                         </tr>
                     </thead>
@@ -72,12 +73,6 @@
 
             <!-- Accessibilita' -->
             <p id="descTab">La tabella raffigurata riassume gli ordini da te effettuati.</p>
-            <p class="col" id="col1">colonna 1</p>
-            <p class="col" id="col2">colonna 2</p>
-            <p class="col" id="col3">colonna 3</p>
-            <p class="col" id="col4">colonna 4</p>
-            <p class="col" id="col5">colonna 5</p>
-            <p class="col" id="col6">colonna 6</p>
         </div>
     </body>
 

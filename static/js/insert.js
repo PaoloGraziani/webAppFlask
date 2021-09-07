@@ -78,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function (data) {
             $("#codiceCA").append(event_data3);
         }
     })
-    console.log(errore)
     if(errore == "Ordine già presente!") {
         document.getElementById("errore").innerHTML = errore;
     }
