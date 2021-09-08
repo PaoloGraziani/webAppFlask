@@ -2,7 +2,7 @@ var event_data = '';
 var event_data1 = '';
 document.addEventListener('DOMContentLoaded', function (data) {
     event_data += '<h1 aria-describedby="descLog" id="titolo">Login</h1>';
-    event_data += '<form action="login" method="post">' +
+    event_data += '<form action="/login" method="post">' +
         '<input aria-label="Inserisci il tuo username." class="campo" name="username" type="text" maxlength="6" pattern="[ACD0-9]{4,}" placeholder="Username" required/>' +
         '<input aria-label="Inserisci la tua password." class="campo" name="password" type="password" maxlength="16" placeholder="Password" required/>' +
         '<input type="hidden" name="ruolo" />' +

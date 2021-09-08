@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, request, session
+from flask import Flask, jsonify, render_template, request, session, redirect
 
 from src.ManageDatabases.ApplicationDatabase.Agents.agents import select_orders_agent, agentInformation
 from src.ManageDatabases.ApplicationDatabase.Customer.customer import select_orders_custumer, customersInformation, \
@@ -28,23 +28,26 @@ API PER ORDINI DIRETTORE
 '''
 @app.route('/api/orders', methods=['GET'])
 def orders():
-    if session['role'] == 'DIRETTORE':
-        orders = select_orders()
-        return jsonify(orders)
-    else:
-        return render_template('login.html', error=None)
-
+   try:
+        if session['role'] == 'DIRETTORE':
+            orders = select_orders()
+            return jsonify(orders)
+        else:
+            return render_template('login.html', error=None)
+   except:
+    return redirect('/')
 
 '''
 API PER ORDINI AGENTE
 '''
 @app.route('/api/orders/agent/', methods=['GET'])
 def agentOrders():
+
     if session['role'] == 'AGENTE':
         id_agent = request.args.get("id_agent")
         return jsonify(select_orders_agent(id_agent))
     else:
-        return
+        return jsonify('[]')
 
 
 '''
@@ -52,11 +55,14 @@ API PER ORDINI CLIENTE
 '''
 @app.route('/api/orders/costumers',methods=['GET'])
 def costumers_orders():
+   try:
     if session['role'] == 'CLIENTE':
         id_custumer = request.args.get("cust_id")
         return jsonify(select_orders_custumer(id_custumer))
     else:
-        return
+        return jsonify('[]')
+   except:
+       return jsonify('[]')
 
 
 '''
@@ -105,11 +111,10 @@ def api_insert():
 '''
 API PER ELIMINAZIONE DI UN ORDINE
 '''
-@app.route('/api/delete', methods=['GET'])
-def api_delete():
+@app.route('/api/delete/<param>', methods=['DELETE'])
+def api_delete(param):
     if session['role'] == 'AGENTE':
-        ord_num = request.args.get('ord_num')
-        return jsonify(delete_order(ord_num))
+        return jsonify(delete_order(param))
 
 
 '''
@@ -133,6 +138,7 @@ FUNZIONE DI INIZIALIZZAZIONE DELL'APPLICAZIONE
 '''
 @app.route('/')
 def index():
+    session['role'] = ''
     return render_template('login.html', error=None)
 
 '''
@@ -140,10 +146,13 @@ AUTENTICAZIONE
 '''
 @app.route('/login', methods=['POST', 'GET'])
 def submit():
+    role = None
+    session['role'] = None
     username = request.form['username']
     password = request.form['password']
     app.secret_key = SECRET()
     print(app.secret_key)
+    print(role)
     if username_password_confirm(username, password):
         role = role_user(username, password)
         app.secret_key = SECRET()
@@ -249,7 +258,7 @@ LOGOUT
 @app.route('/logout')
 def logout():
     session['role'] = None
-    return render_template("login.html")
+    return redirect('/')
 
 
 '''

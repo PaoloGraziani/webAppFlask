@@ -71,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function (data) {
                     event_data3 += '<option value="'+cust_code+'">'+cust_code+'</option>';
                 }
                 event_data3+= '</select>';
-
                 event_data3 += '<input class="campoAgente2" name="agent_code" type="text" value="'+value.role+'" readonly/>';
 
             })
