@@ -1,5 +1,5 @@
 import src.ManageDatabases.ApplicationDatabase.Agents.agents
-from src.ManageDatabases.settingDatabase import connectDatabase, Application_HOST, Application_DATABASE, \
+from src.ManageDatabases.SettingDatabase import connectDatabase, Application_HOST, Application_DATABASE, \
     Application_USERNAME, Application_PASSWORD, closeCursor, closeConnection
 
 def customer_list(role,connection):

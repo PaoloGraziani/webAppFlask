@@ -1,6 +1,6 @@
 from src.ManageDatabases.ApplicationDatabase.Agents.agents import agentOrderByID
 from src.ManageDatabases.ApplicationDatabase.Customer.customer import OrderByIDCustomer
-from src.ManageDatabases.settingDatabase  import connectDatabase, Application_HOST, Application_DATABASE, \
+from src.ManageDatabases.SettingDatabase  import connectDatabase, Application_HOST, Application_DATABASE, \
     Application_USERNAME, Application_PASSWORD, closeCursor, closeConnection
 
 
