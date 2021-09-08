@@ -22,7 +22,7 @@ $.ajax({
 
             event_data += '<td>' + value.Description + '</td>';
             event_data += '<td><a class="modLink" href="/changeOrder?ordNum=' + value.num_ord + '"> Modifica </a></td>'
-            event_data += '<td><a class="modLink" href="/deleteOrder?ordNum=' + value.num_ord + '"> Elimina </a></td>'
+            event_data += '<td><a class="modLink" href="/deleteOrder/' + value.num_ord + '"> Elimina </a></td>'
             event_data += '</tr>';
         });
         $("#datiTab").append(event_data);

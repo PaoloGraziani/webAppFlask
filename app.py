@@ -89,16 +89,16 @@ def data_ord():
 '''
 API PER INSERIMENTO ORDINE
 '''
-@app.route('/api/insert', methods=['GET'])
+@app.route('/api/insert', methods=['POST'])
 def api_insert():
     if session['role'] == 'AGENTE':
-        ord_num = request.args.get('ord_num')
-        ord_amount = request.args.get('ord_amount')
-        advance_amount = request.args.get('advance_amount')
-        ord_date = request.args.get('ord_date')
-        cust_code = request.args.get('cust_code')
-        agent_code = request.args.get('agent_code')
-        ord_description = request.args.get('ord_description')
+        ord_num = request.form['ord_num']
+        ord_amount = request.form['ord_amount']
+        advance_amount = request.form['advance_amount']
+        ord_date = request.form['ord_date']
+        cust_code = request.form['cust_code']
+        agent_code = request.form['agent_code']
+        ord_description = request.form['ord_description']
         return jsonify(insert_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description))
 
 
@@ -234,13 +234,11 @@ def update():
 '''
 ELIMINAZIONE DI UN ORDINE
 '''
-@app.route('/deleteOrder')
-def delete():
-    id_ord = request.args.get("ordNum")
-    print(id_ord)
+@app.route('/deleteOrder/<param>')
+def delete(param):
     username = session['username']
     if session['role'] == 'AGENTE':
-        delete_order(id_ord)
+        delete_order(param)
         return render_template('ordersAgent.html', orders=select_orders_agent(username),
                                role=session['role'],username=username)
 
