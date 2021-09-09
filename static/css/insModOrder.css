@@ -1,5 +1,5 @@
 #corpo{
-    background-color: #FFF8DC;
+    background-color: #FFF8DC; /* GIALLOGNOLO*/
 }
 
 #pagina{
@@ -10,7 +10,7 @@
 
 #errore{
     background-color: red;
-    color: #F8F8FF;
+    color: #F8F8FF; /* BIANCO */
     font-family: Arial;
     font-size: 2em;
     text-align: center;
@@ -149,7 +149,7 @@ p{
     margin-top: 2em;
 
     transition-duration: 0.5s;
-    /*Il cursore diventa la mamo*/
+    /*Il cursore diventa la mano*/
     cursor: pointer;
 }
 

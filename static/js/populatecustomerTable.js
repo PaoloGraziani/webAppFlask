@@ -20,6 +20,9 @@ $(document).ready(function () {
                 event_data += '</tr>';
             });
             $("#datiTab").append(event_data);
+        },
+        error: function (data) {
+            alert('Caricamento Impossibile!')
         }
     })
 })

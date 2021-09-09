@@ -30,7 +30,7 @@ table{
   margin-top: 0.5em;
 
   border: 0.3em solid #F8F8FF;
-  border-radius: 0.4em;
+  border-radius: 0.4em; /* ANGOLI */
 
   width: 100%;
   table-layout:fixed; /*Mantiene le celle tutte uguali di dimensione*/

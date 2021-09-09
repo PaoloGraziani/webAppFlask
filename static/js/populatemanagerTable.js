@@ -19,7 +19,7 @@
                     '</div></details></td>';
 
                 event_data += '<td class="tdCliente"><details><summary>' + value.Agent_code.agent_name + '</summary>' +
-                    '<div>' + 'Id: ' + value.Agent_code.agent_code + '<br>Area di lavoro: ' + value.Agent_code.working_area + '<br>Commissione: ' +
+                    '<div>' + 'Id: ' + value.Agent_code.id + '<br>Area di lavoro: ' + value.Agent_code.working_area + '<br>Commissione: ' +
                     value.Agent_code.commission + '<br>Numero di telefono: ' + value.Agent_code.phone_no + '<br>Nazione: ' + value.Agent_code.country +
                     '</div></details></td>';
                 event_data += '<td>' + value.Description + '</td>';
@@ -28,5 +28,8 @@
             });
             $("#datiTab").append(event_data);
         },
+     error: function (data) {
+         alert('Caricamento Impossibile!')
+     }
     });
 

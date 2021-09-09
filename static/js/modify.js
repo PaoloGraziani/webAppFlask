@@ -79,6 +79,9 @@ $(document).ready(function () {
             $("#data").append(event_data2);
             $("#codiceCA").append(event_data3);
             $("#descrizione").append(event_data4);
+        },
+        error: function (data) {
+            alert('Caricamento Impossibile!')
         }
     })
 })

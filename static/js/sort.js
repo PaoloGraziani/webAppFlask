@@ -47,6 +47,9 @@ $(document).ready(function() {
                 });
                 $("#datiTab").append(event_data);
             },
+            error: function (data) {
+                alert('Caricamento Impossibile!')
+            }
         });
     })
 })

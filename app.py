@@ -13,63 +13,80 @@ from src.configuration import SECRET, SESSION_TYPE
 app = Flask(__name__)
 
 '''API RESTITUISCE TUTTI I CLIENTI'''
+
+
 @app.route('/api/customers', methods=['GET'])
-def customers() :
-     role = session['role']
-     username = session['username']
-     if role == 'DIRETTORE' or role == 'AGENTE':
-         print(username)
-         return jsonify(customer_list(username,None))
-         
+def customers():
+    try:
+        role = session['role']
+        username = session['username']
+        if role == 'DIRETTORE' or role == 'AGENTE':
+            print(username)
+            return jsonify(customer_list(username, None))
+        else:
+            return jsonify('[]')
+    except:
+        return jsonify('[]')
 
 
 '''
 API PER ORDINI DIRETTORE
 '''
+
+
 @app.route('/api/orders', methods=['GET'])
 def orders():
-   try:
+    try:
         if session['role'] == 'DIRETTORE':
             orders = select_orders()
             return jsonify(orders)
         else:
-            return render_template('login.html', error=None)
-   except:
-    return redirect('/')
+            return jsonify('[]')
+    except:
+        return jsonify('[]')
+
 
 '''
 API PER ORDINI AGENTE
 '''
+
+
 @app.route('/api/orders/agent/', methods=['GET'])
 def agentOrders():
-
+  try:
     if session['role'] == 'AGENTE':
         id_agent = request.args.get("id_agent")
         return jsonify(select_orders_agent(id_agent))
     else:
         return jsonify('[]')
-
+  except:
+      return jsonify('[]')
 
 '''
 API PER ORDINI CLIENTE
 '''
-@app.route('/api/orders/costumers',methods=['GET'])
+
+
+@app.route('/api/orders/costumers', methods=['GET'])
 def costumers_orders():
-   try:
-    if session['role'] == 'CLIENTE':
-        id_custumer = request.args.get("cust_id")
-        return jsonify(select_orders_custumer(id_custumer))
-    else:
+    try:
+        if session['role'] == 'CLIENTE':
+            id_custumer = request.args.get("cust_id")
+            return jsonify(select_orders_custumer(id_custumer))
+        else:
+            return jsonify('[]')
+    except:
         return jsonify('[]')
-   except:
-       return jsonify('[]')
 
 
 '''
 API RESTITUISCE IN OUTPUT GLI ORDINI CON UN CERTO ORDINE ASCENDENTE DISCENDENTE
 '''
+
+
 @app.route('/api/orders/sort_by/<param>')
 def sort_order(param):
+  try:
     if session['role'] == 'DIRETTORE' or session['role'] == 'AGENTE' or session['role'] == 'CLIENTE':
         ruolo = session['role']
         username = session['username']
@@ -77,111 +94,143 @@ def sort_order(param):
         if param in ['ord_num', 'ord_amount', 'advance_amount', 'ord_date', 'cust_code', 'agent_code',
                      'ord_description'] or param in ['-ord_num', '-ord_amount', '-advance_amount', '-ord_date',
                                                      '-cust_code', '-agent_code', '-ord_description']:
-            return sort_orders(param,ruolo,username)
+            return sort_orders(param, ruolo, username)
         else:
-            return render_template("login.html")
-
+            return jsonify('[]')
+  except:
+      return  jsonify('[]')
 
 '''
-API RESTITUISCE I DATI DI UN ORDINI[USO IN MODIFICA)
+API RESTITUISCE I DATI DI UN ORDINE[USO IN MODIFICA)
 '''
+
+
 @app.route('/api/orders/dataorder', methods=['GET'])
 def data_ord():
-    ord_num = request.args.get("ordNum")
-    print(ord_num)
-    return jsonify(select_orderByID(ord_num,session['role'],session['username']))
+    try:
+       if session['role'] == 'AGENTE' or session['role']=='DIRETTORE':
+            ord_num = request.args.get("ordNum")
+            return jsonify(select_orderByID(ord_num, session['role'], session['username']))
+       else:
+           return jsonify('[]')
+    except:
+        return jsonify('[]')
 
 
 '''
 API PER INSERIMENTO ORDINE
 '''
+
+
 @app.route('/api/insert', methods=['POST'])
 def api_insert():
-    if session['role'] == 'AGENTE':
-        ord_num = request.form['ord_num']
-        ord_amount = request.form['ord_amount']
-        advance_amount = request.form['advance_amount']
-        ord_date = request.form['ord_date']
-        cust_code = request.form['cust_code']
-        agent_code = request.form['agent_code']
-        ord_description = request.form['ord_description']
-        return jsonify(insert_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description))
-
+     try:
+        if session['role'] == 'AGENTE':
+            ord_num = request.form['ord_num']
+            ord_amount = request.form['ord_amount']
+            advance_amount = request.form['advance_amount']
+            ord_date = request.form['ord_date']
+            cust_code = request.form['cust_code']
+            agent_code = request.form['agent_code']
+            ord_description = request.form['ord_description']
+            return jsonify(
+                insert_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description))
+        else:
+            return jsonify('[]')
+     except:
+        return jsonify('[]')
 
 '''
 API PER ELIMINAZIONE DI UN ORDINE
 '''
-@app.route('/api/delete/<param>', methods=['DELETE'])
-def api_delete(param):
-    if session['role'] == 'AGENTE':
-        return jsonify(delete_order(param))
+@app.route('/api/delete', methods=['GET'])
+def api_delete():
+    try:
+        ord_num = request.args.get('ord_num')
+        print(session['role'])
+        if session['role'] == 'AGENTE':
+            return jsonify(delete_order(ord_num))
+        else:
+            return jsonify('[]')
+    except:
+        return jsonify('[]')
 
 
 '''
 API PER LA MODIFICA DI UN ORDINE
 '''
+
+
 @app.route('/api/update', methods=['GET'])
 def api_update():
-  if session['role'] == 'AGENTE' or session['role'] == 'DIRETTORE':
-    ord_num = request.args.get('ord_num')
-    ord_amount = request.args.get('ord_amount')
-    advance_amount = request.args.get('advance_amount')
-    ord_date = request.args.get('ord_date')
-    cust_code = request.args.get('cust_code')
-    agent_code = request.args.get('agent_code')
-    ord_description = request.args.get('ord_description')
-    return jsonify(update_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description))
+   try:
+        if session['role'] == 'AGENTE' or session['role'] == 'DIRETTORE':
+            ord_num = request.args.get('ord_num')
+            ord_amount = request.args.get('ord_amount')
+            advance_amount = request.args.get('advance_amount')
+            ord_date = request.args.get('ord_date')
+            cust_code = request.args.get('cust_code')
+            agent_code = request.args.get('agent_code')
+            ord_description = request.args.get('ord_description')
+            return jsonify(
+                update_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description))
+        else:
+            return jsonify('[]')
+   except:
+       return jsonify('[]')
 
 
 '''
 FUNZIONE DI INIZIALIZZAZIONE DELL'APPLICAZIONE
 '''
+
+
 @app.route('/')
 def index():
-    session['role'] = ''
     return render_template('login.html', error=None)
+
 
 '''
 AUTENTICAZIONE
 '''
-@app.route('/login', methods=['POST', 'GET'])
+
+
+@app.route('/login', methods=['POST'])
 def submit():
-    role = None
-    session['role'] = None
+
     username = request.form['username']
     password = request.form['password']
-    app.secret_key = SECRET()
-    print(app.secret_key)
-    print(role)
     if username_password_confirm(username, password):
         role = role_user(username, password)
-        app.secret_key = SECRET()
-        print(app.secret_key)
         session['username'] = username
         session['role'] = role
 
         if role == "DIRETTORE":
-            return render_template('ordersManager.html',role=session['role'])
+            return render_template('ordersManager.html', role=session['role'])
         if role == "AGENTE":
-            return render_template('ordersAgent.html', username=username,role=role)
+            return render_template('ordersAgent.html', username=username, role=role)
         if role == "CLIENTE":
-            return render_template('ordersCustomer.html', username=username,role=role)
+            return render_template('ordersCustomer.html', username=username, role=role)
     else:
         error = 'Yes'
         return render_template("login.html", error=error)
 
+
 '''
 INSERIMENTO ORDINI INDIRIZZAMENTO
 '''
+
+
 @app.route('/insertOrder', methods=['POST'])
 def insertOrder():
-    infoCustomer = customersInformation()
-    return render_template("insertOrder.html", infoCustomer=infoCustomer, username=session['username'])
+    return render_template("insertOrder.html", username=session['username'])
 
 
 '''
 INSERIMENTO ORDINE: FUNZIONE ESECUTIVA
 '''
+
+
 @app.route('/insert', methods=['POST'])
 def insert():
     if session['role'] == 'AGENTE':
@@ -199,7 +248,7 @@ def insert():
         success = insert_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description)
         print(success)
         if success[0]['success'] == '0':
-            return render_template('insertOrder.html', username=username, error='Ordine già presente!', infoCustomer=infoCustomer)
+            return render_template('insertOrder.html', username=username, error='Ordine già presente!')
         else:
             return render_template('ordersAgent.html', username=username, role=session['role'])
 
@@ -207,6 +256,8 @@ def insert():
 '''
 MODIFICA ORDINE - INDIRIZZAMENTO IN BASE AL RUOLO
 '''
+
+
 @app.route('/changeOrder')
 def changeOrder():
     ordNum = request.args.get("ordNum")
@@ -214,13 +265,16 @@ def changeOrder():
     infoAgent = agentInformation()
 
     if session['role'] == 'DIRETTORE':
-        return render_template("modifyOrder.html", ordNum=ordNum, role=session['role'], infoCustomer=infoCustomer, infoAgent=infoAgent)
+        return render_template("modifyOrder.html", ordNum=ordNum, role=session['role'])
     if session['role'] == 'AGENTE':
-        return render_template("modifyOrder.html", ordNum=ordNum, role=session['role'], infoCustomer=infoCustomer)
+        return render_template("modifyOrder.html", ordNum=ordNum, role=session['role'])
+
 
 '''
 FUNZIONE DI MODIFICA - PARTE ESECUTIVA
 '''
+
+
 @app.route('/update', methods=['POST'])
 def update():
     ord_num = request.form['ord_num']
@@ -231,30 +285,36 @@ def update():
     agent_code = request.form['agent_code']
     ord_description = request.form['ord_description']
     username = session['username']
-    infoCustomer = customersInformation()
-    if session['role'] == 'DIRETTORE':
-        update_order(ord_num, ord_amount, advance_amount, ord_date,cust_code, agent_code, ord_description)
 
-        return render_template('ordersManager.html', username=username,role=session['role'])
-    elif session['role']=='AGENTE':
-        update_order(ord_num, ord_amount, advance_amount, ord_date,cust_code, agent_code, ord_description)
-        return render_template('ordersAgent.html', username=username,role=session['role'])
+    if session['role'] == 'DIRETTORE':
+        update_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description)
+
+        return render_template('ordersManager.html', username=username, role=session['role'])
+    elif session['role'] == 'AGENTE':
+        update_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description)
+        return render_template('ordersAgent.html', username=username, role=session['role'])
+
 
 '''
 ELIMINAZIONE DI UN ORDINE
 '''
-@app.route('/deleteOrder/<param>')
-def delete(param):
+
+
+@app.route('/deleteOrder', methods=['GET'])
+def delete():
     username = session['username']
+    ord_num= request.args.get('ord_num')
     if session['role'] == 'AGENTE':
-        delete_order(param)
-        return render_template('ordersAgent.html', orders=select_orders_agent(username),
-                               role=session['role'],username=username)
+        delete_order(ord_num)
+        return render_template('ordersAgent.html',
+                               role=session['role'], username=username)
 
 
 '''
 LOGOUT
 '''
+
+
 @app.route('/logout')
 def logout():
     session['role'] = None
@@ -264,15 +324,17 @@ def logout():
 '''
 INDIETRO
 '''
+
+
 @app.route('/back', methods=['POST'])
-def back() :
+def back():
     role = session['role']
     username = session['username']
     print(role)
     if role == 'AGENTE':
-        return render_template('ordersAgent.html',username=username,role=role)
+        return render_template('ordersAgent.html', username=username, role=role)
     if role == 'DIRETTORE':
-        return render_template('ordersManager.html', username=username,role=role)
+        return render_template('ordersManager.html', username=username, role=role)
 
 
 if __name__ == '__main__':

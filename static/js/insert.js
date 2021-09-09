@@ -9,7 +9,6 @@ beforeSubmit = function() {
 
 
     if (parseFloat(acconto) > parseFloat(prezzo) || parseFloat(prezzo) == 0.00) {
-        console.log("sono mago merlino!")
         if ((prezzo == '0.00')) {
             errorePrezzo += "Il prezzo deve essere maggiore di 0.00€ \n";
         }
@@ -75,6 +74,9 @@ document.addEventListener('DOMContentLoaded', function (data) {
 
             })
             $("#codiceCA").append(event_data3);
+        },
+        error: function (data) {
+            alert('Caricamento Impossibile!')
         }
     })
     if(errore == "Ordine già presente!") {
