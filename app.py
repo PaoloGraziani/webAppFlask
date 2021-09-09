@@ -187,7 +187,7 @@ FUNZIONE DI INIZIALIZZAZIONE DELL'APPLICAZIONE
 
 @app.route('/')
 def index():
-    return render_template('login.html', error=None)
+    return render_template('login.jinja2', error=None)
 
 
 '''
@@ -206,14 +206,14 @@ def submit():
         session['role'] = role
 
         if role == "DIRETTORE":
-            return render_template('ordersManager.html', role=session['role'])
+            return render_template('ordersManager.jinja2', role=session['role'])
         if role == "AGENTE":
-            return render_template('ordersAgent.html', username=username, role=role)
+            return render_template('ordersAgent.jinja2', username=username, role=role)
         if role == "CLIENTE":
-            return render_template('ordersCustomer.html', username=username, role=role)
+            return render_template('ordersCustomer.jinja2', username=username, role=role)
     else:
         error = 'Yes'
-        return render_template("login.html", error=error)
+        return render_template("login.jinja2", error=error)
 
 
 '''
@@ -223,7 +223,7 @@ INSERIMENTO ORDINI INDIRIZZAMENTO
 
 @app.route('/insertOrder', methods=['POST'])
 def insertOrder():
-    return render_template("insertOrder.html", username=session['username'])
+    return render_template("insertOrder.jinja2", username=session['username'])
 
 
 '''
@@ -244,13 +244,13 @@ def insert():
         username = session['username']
         infoCustomer = customersInformation()
         if float(ord_amount) < float(advance_amount):
-            return render_template('insertOrder.html', error='yes', username=username, infoCustomer=infoCustomer)
+            return render_template('insertOrder.jinja2', error='yes', username=username, infoCustomer=infoCustomer)
         success = insert_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description)
         print(success)
         if success[0]['success'] == '0':
-            return render_template('insertOrder.html', username=username, error='Ordine già presente!')
+            return render_template('insertOrder.jinja2', username=username, error='Ordine già presente!')
         else:
-            return render_template('ordersAgent.html', username=username, role=session['role'])
+            return render_template('ordersAgent.jinja2', username=username, role=session['role'])
 
 
 '''
@@ -265,9 +265,9 @@ def changeOrder():
     infoAgent = agentInformation()
 
     if session['role'] == 'DIRETTORE':
-        return render_template("modifyOrder.html", ordNum=ordNum, role=session['role'])
+        return render_template("modifyOrder.jinja2", ordNum=ordNum, role=session['role'])
     if session['role'] == 'AGENTE':
-        return render_template("modifyOrder.html", ordNum=ordNum, role=session['role'])
+        return render_template("modifyOrder.jinja2", ordNum=ordNum, role=session['role'])
 
 
 '''
@@ -289,10 +289,10 @@ def update():
     if session['role'] == 'DIRETTORE':
         update_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description)
 
-        return render_template('ordersManager.html', username=username, role=session['role'])
+        return render_template('ordersManager.jinja2', username=username, role=session['role'])
     elif session['role'] == 'AGENTE':
         update_order(ord_num, ord_amount, advance_amount, ord_date, cust_code, agent_code, ord_description)
-        return render_template('ordersAgent.html', username=username, role=session['role'])
+        return render_template('ordersAgent.jinja2', username=username, role=session['role'])
 
 
 '''
@@ -306,7 +306,7 @@ def delete():
     ord_num= request.args.get('ord_num')
     if session['role'] == 'AGENTE':
         delete_order(ord_num)
-        return render_template('ordersAgent.html',
+        return render_template('ordersAgent.jinja2',
                                role=session['role'], username=username)
 
 
@@ -332,9 +332,9 @@ def back():
     username = session['username']
     print(role)
     if role == 'AGENTE':
-        return render_template('ordersAgent.html', username=username, role=role)
+        return render_template('ordersAgent.jinja2', username=username, role=role)
     if role == 'DIRETTORE':
-        return render_template('ordersManager.html', username=username, role=role)
+        return render_template('ordersManager.jinja2', username=username, role=role)
 
 
 if __name__ == '__main__':
