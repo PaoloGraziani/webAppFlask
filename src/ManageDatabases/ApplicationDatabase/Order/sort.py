@@ -52,7 +52,7 @@ def sort_orders(par, role, username):
                               "commission": "{:.2f}".format(float(res[3])), "phone_no": res[4], "country": res[5]}
 
             # num decimale, importOrder decimale advance_ord decimali
-            content = {'num_ord': float(result[0]), 'importOrder': "{:.2f}".format(float(result[1])),
+            content = {'role':role,'num_ord': float(result[0]), 'importOrder': "{:.2f}".format(float(result[1])),
                        'advance_ord': "{:.2f}".format(float(result[2])), 'ordDate': result[3].strftime("%d/%m/%y"),
                        'Cust_id': info, 'Agent_code': agent_info, 'Description': result[6]}
 

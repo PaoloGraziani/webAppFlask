@@ -1,5 +1,6 @@
 
 $(document).ready(function () {
+    username = $(this).attr('username');
 $.ajax({
     url: "/api/orders/agent?id_agent=" + username,
     method: 'GET',
